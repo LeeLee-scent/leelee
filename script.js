@@ -67,7 +67,7 @@ const results = {
     title: "木質沉穩型",
     image: "images/result_woody.jpg",
     description: "你是沈穩內斂的人，像森林般包容而寧靜。你對生活有自己的步調，重視深度與穩定感。",
-    analysis: "你多次選擇偏向穩定與自然的選項，顯示你喜歡踏實、踏根於日常的安定。建議：選擇檀香、雪松、岩蘭草等木質香，讓你感到安心與力量。"
+    analysis: "你的選擇偏向穩定與自然的選項，顯示你喜歡踏實、踏根於日常的安定。建議：選擇檀香、雪松、岩蘭草等木質香，讓你感到安心與力量。"
   },
   citrus: {
     title: "柑橘清新型",
@@ -180,7 +180,7 @@ function showResult(){
   resultTitle.textContent = r.title;
   resultImage.src = r.image;
   resultDesc.textContent = r.description;
-  resultAnalysis.innerHTML = `因為你的選擇多偏向 <strong>${r.title}</strong>，<br>${r.analysis}`;
+  resultAnalysis.innerHTML = `屬於你的風格是 <strong>${r.title}</strong>，<br>${r.analysis}`;
 }
 
 restartBtn.addEventListener('click', ()=>{
