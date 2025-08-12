@@ -2,7 +2,7 @@
 const questions = [
   {
     question: "Q1. 清晨起床的你，最需要什麼來開啟新的一天？",
-    image: "images/q1.jpg",
+    image: "images/q1.png",
     answers: [
       {text: "A. 一杯剛沖好的黑咖啡，喚醒思緒", type: "woody"},
       {text: "B. 一場晨間瑜伽或暖身運動，激發能量", type: "citrus"},
@@ -12,7 +12,7 @@ const questions = [
   },
   {
     question: "Q2. 在不經意的空氣中，你最難忘的是哪種氣味記憶？",
-    image: "images/q2.jpg",
+    image: "images/q2.png",
     answers: [
       {text: "A. 熱帶果香與汗水交織的旅行午後", type: "citrus"},
       {text: "B. 雨後濕潤的森林氣息", type: "woody"},
