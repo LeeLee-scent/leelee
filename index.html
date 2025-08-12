@@ -1,58 +1,72 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title style="text-align: center;">LeeLee Scent Studio — 測一測你的風格香</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Pacifico&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LeeLee Scent Studio — 測一測你的風格香</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    /* 調整 CSS 以將 intro 區塊內容置中 */
+    #intro {
+      text-align: center;
+    }
+    #intro .btn {
+      display: inline-block;
+      margin: 0 auto;
+    }
+    /* 確保文字換行生效 */
+    .lead {
+      white-space: pre-wrap;
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <img src="images/logo.png" alt="LeeLee Scent Studio" class="logo"/>
-  </header>
+  <header class="site-header">
+    <img src="images/logo.png" alt="LeeLee Scent Studio" class="logo"/>
+  </header>
 
-  <main class="container" id="app">
-    <section id="intro" class="card">
-      <h1>測一測你的風格香</h1>
-      <p id="introText" class="lead">
+  <main class="container" id="app">
+    <section id="intro" class="card">
+      <h1>測一測你的風格香</h1>
+      <p id="introText" class="lead">
 好聞的香氛是感官的享受
 它以氣味、情感與記憶調和我們的情緒與心境
 增添個人的風格，提振與轉換心情
 有的人喜歡隨著每天不同的心情變換香氛
 有的人則會鍾情某款香調鮮少變換
 想找到專屬你此時的風格香
-      </p>
-      <button id="startBtn" class="btn primary">開始測驗</button>
-    </section>
+      </p>
+      <button id="startBtn" class="btn primary">開始測驗</button>
+    </section>
 
-    <section id="quiz" class="card hidden">
-      <div class="progress"><span id="progressText">第 1 題 / 6 題</span></div>
-      <img id="questionImage" src="images/q1.jpg" alt="" class="qimage"/>
-      <h2 id="questionTitle"></h2>
-      <div id="answers" class="answers"></div>
-      <div class="nav">
-        </p>
-        <br>
-        <button id="nextBtn" class="btn" style="display:none;">下一題</button>
-      </div>
-    </section>
+    <section id="quiz" class="card hidden">
+      <div class="progress"><span id="progressText">第 1 題 / 6 題</span></div>
+      <img id="questionImage" src="images/q1.jpg" alt="" class="qimage"/>
+      <h2 id="questionTitle"></h2>
+      <div id="answers" class="answers"></div>
+      <div class="nav">
+        </p>
+        <br>
+        <button id="nextBtn" class="btn" style="display:none;">下一題</button>
+    </div>
+    </section>
 
-    <section id="result" class="card hidden">
-      <h2 id="resultTitle"></h2>
-      <img id="resultImage" src="" alt="" class="result-image"/>
-      <div id="resultDesc" class="result-desc"></div>
-      <div id="resultAnalysis" class="result-analysis"></div>
-      <div class="actions">
-        <button id="restartBtn" class="btn">重新測驗</button>
-      </div>
-    </section>
-  </main>
+    <section id="result" class="card hidden">
+      <h2 id="resultTitle"></h2>
+      <img id="resultImage" src="" alt="" class="result-image"/>
+      <div id="resultDesc" class="result-desc"></div>
+      <div id="resultAnalysis" class="result-analysis"></div>
+      <div class="actions">
+        <button id="restartBtn" class="btn">重新測驗</button>
+      </div>
+    </section>
+  </main>
 
-  <footer class="site-footer">
-    <small>© LeeLee Scent Studio</small>
-  </footer>
+  <footer class="site-footer">
+    <small>© LeeLee Scent Studio</small>
+  </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
