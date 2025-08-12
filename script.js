@@ -1,4 +1,4 @@
-// script.js - 香氣人格測驗 (Single Page, 6 questions)
+// script.js - 香氣人格測驗 (Single Page, 6 questions + 打字效果 + 深色字體)
 const questions = [
   {
     question: "Q1. 清晨起床的你，最需要什麼來開啟新的一天？",
@@ -110,6 +110,22 @@ const resultDesc = document.getElementById('resultDesc');
 const resultAnalysis = document.getElementById('resultAnalysis');
 const restartBtn = document.getElementById('restartBtn');
 
+// 打字機效果
+function typeText(element, text, speed = 30, callback){
+  element.textContent = '';
+  let i = 0;
+  function typing(){
+    if(i < text.length){
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(typing, speed);
+    } else if(callback){
+      callback();
+    }
+  }
+  typing();
+}
+
 startBtn.addEventListener('click', ()=>{
   intro.classList.add('hidden');
   quiz.classList.remove('hidden');
@@ -120,32 +136,31 @@ startBtn.addEventListener('click', ()=>{
 
 function renderQuestion(){
   const q = questions[current];
-  questionTitle.textContent = q.question;
   questionImage.src = q.image;
   progressText.textContent = `第 ${current+1} 題 / ${total} 題`;
   answersDiv.innerHTML = '';
-  q.answers.forEach((a, idx) => {
+  q.answers.forEach((a) => {
     const btn = document.createElement('button');
     btn.className = 'answer-btn';
     btn.textContent = a.text;
+    btn.style.color = "#3b2f2f"; // 深色字
     btn.addEventListener('click', ()=> selectAnswer(a.type));
     answersDiv.appendChild(btn);
   });
   nextBtn.style.display = 'none';
+  
+  // 用打字效果顯示題目
+  typeText(questionTitle, q.question);
 }
 
 function selectAnswer(type){
   scores[type]++;
-  // disable buttons
   answersDiv.querySelectorAll('button').forEach(b=>b.disabled=true);
-  // show next
   if(current < total-1){
     nextBtn.style.display = 'inline-block';
   } else {
-    // last question - directly show result
     showResult();
   }
-  // allow click next to continue
   nextBtn.onclick = ()=>{
     current++;
     if(current < total) renderQuestion();
@@ -156,7 +171,6 @@ function selectAnswer(type){
 function showResult(){
   quiz.classList.add('hidden');
   resultSection.classList.remove('hidden');
-  // determine highest
   let highest = 'woody';
   let max = -1;
   for(const k in scores){
