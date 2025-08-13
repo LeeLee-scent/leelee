@@ -15,8 +15,8 @@ html,body{
   font-family: "ZCOOL KuaiLe", "標楷體", "BiauKai", "DFKai-SB", "KaiTi", "Noto Sans TC", sans-serif;
   color:var(--text);
   -webkit-font-smoothing:antialiased;
-  /* 新增：柔和的漸層背景 */
-  background: linear-gradient(135deg, #fdf8f3, #ece0d1);
+  /* 終極解決方案：強制使用漸層背景 */
+  background: linear-gradient(135deg, #fdf8f3, #ece0d1) !important;
 }
 .site-header{display:flex;justify-content:center;padding:24px 12px}
 .logo{max-width:240px;height:auto}
@@ -40,8 +40,9 @@ html,body{
 .lead{
   color:var(--cream);
   margin-bottom:18px;
-  text-align:center;
-  white-space:pre-wrap;
+  /* 終極解決方案：強制置中與換行 */
+  text-align:center !important;
+  white-space:pre-wrap !important;
   font-size:1.2em;
 }
 .btn{
