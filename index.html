@@ -7,11 +7,15 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Pacifico&display=swap" rel="stylesheet">
   <style>
-    /* 確保 intro 區塊內容置中 */
+    /* 調整 CSS 以將 intro 區塊內容置中 */
     #intro {
       text-align: center;
     }
-    /* 確保文字能正確換行 */
+    #intro .btn {
+      display: inline-block;
+      margin: 0 auto;
+    }
+    /* 確保文字換行生效 */
     .lead {
       white-space: pre-wrap;
     }
@@ -32,7 +36,7 @@
 有的人喜歡隨著每天不同的心情變換香氛
 有的人則會鍾情某款香調鮮少變換
 想找到專屬你此時的風格香
-      <p>
+      </p>
       <button id="startBtn" class="btn primary">開始測驗</button>
     </section>
 
@@ -42,10 +46,10 @@
       <h2 id="questionTitle"></h2>
       <div id="answers" class="answers"></div>
       <div class="nav">
-        <p>
+        </p>
         <br>
         <button id="nextBtn" class="btn" style="display:none;">下一題</button>
-      </div>
+    </div>
     </section>
 
     <section id="result" class="card hidden">
