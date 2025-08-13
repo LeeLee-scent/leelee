@@ -1,88 +1,96 @@
-/* Style: 文青療癒手繪風 (簡約版) */
+/* Style: 文青療癒手繪風 (簡約版) /
 :root{
-  --bg:#fffaf5;
-  --card:#fff;
-  --accent:#e6d3c4;
-  --text:#4b3f36;
-  --muted:#7a6a60;
-  --cream:#3b2f2f; /* 米白色 */
+--bg:#fffaf5;
+--card:#fff;
+--accent:#e6d3c4;
+--text:#4b3f36;
+--muted:#7a6a60;
+--cream:#3b2f2f; / 米白色 */
 }
-*{box-sizing:border-box}
+{box-sizing:border-box}
 html,body{
-  height:100%;
-  margin:0;
-  /* 更新字體設定，以確保標楷體顯示 */
-  font-family: "ZCOOL KuaiLe", "標楷體", "BiauKai", "DFKai-SB", "KaiTi", "Noto Sans TC", sans-serif;
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  /* 終極解決方案：強制使用漸層背景 */
-  background: linear-gradient(135deg, #fdf8f3, #ece0d1) !important;
+height:100%;
+margin:0;
+/ 更新字體設定，以確保標楷體顯示 /
+font-family: "ZCOOL KuaiLe", "標楷體", "BiauKai", "DFKai-SB", "KaiTi", "Noto Sans TC", sans-serif;
+color:var(--text);
+-webkit-font-smoothing:antialiased;
+/ 終極解決方案：強制使用漸層背景 /
+background: linear-gradient(135deg, #fdf8f3, #ece0d1) !important;
 }
 .site-header{display:flex;justify-content:center;padding:24px 12px}
 .logo{max-width:240px;height:auto}
 .container{max-width:720px;margin:0 auto;padding:16px}
 .card{
-  background:var(--card);
-  /* 調整圓角和陰影，讓卡片更柔和 */
-  border-radius:16px;
-  padding:20px;
-  margin-bottom:18px;
-  box-shadow:0 8px 20px rgba(75,63,54,0.08);
+background:var(--card);
+/ 調整圓角和陰影，讓卡片更柔和 */
+border-radius:16px;
+padding:20px;
+margin-bottom:18px;
+box-shadow:0 8px 20px rgba(75,63,54,0.08);
 }
 
 #intro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+/* 調整 #intro 內的按鈕置中 */
+#intro button {
+margin-left: auto;
+margin-right: auto;
+display: block;
 }
 
 .lead{
-  color:var(--cream);
-  margin-bottom:18px;
-  /* 終極解決方案：強制置中與換行 */
-  text-align:center !important;
-  white-space:pre-wrap !important;
-  font-size:1.2em;
+color:var(--cream);
+margin-bottom:18px;
+/* 終極解決方案：強制置中與換行 /
+text-align:center !important;
+white-space:pre-wrap !important;
+font-size:1.2em;
+/ 調整文字行距 /
+line-height: 1.4; / 您可以根據喜好調整這個數值 /
 }
 .btn{
-  padding:10px 16px;
-  border-radius:12px;
-  border:none;
-  background:#efe1d3;
-  color:var(--text);
-  cursor:pointer;
-  font-size:16px;
-  transition: all 0.2s ease-in-out;
+padding:10px 16px;
+border-radius:12px;
+border:none;
+background:#efe1d3;
+color:var(--text);
+cursor:pointer;
+font-size:16px;
+transition: all 0.2s ease-in-out;
 }
 .btn.primary{background:var(--accent);font-weight:600}
-/* 調整 hover 效果，讓變化更細膩 */
+/ 調整 hover 效果，讓變化更細膩 */
 .btn.primary:hover{
-  background-color: #d1b8a5;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+background-color: #d1b8a5;
+transform: translateY(-2px);
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 .hidden{display:none}
 .answers{display:flex;flex-direction:column;gap:12px;margin-top:12px}
 .answer-btn{
-  background:#f6efe8;
-  border-radius:10px;
-  padding:12px;
-  border:none;
-  text-align:left;
-  cursor:pointer;
-  transition:transform .12s ease,box-shadow .12s;
+background:#f6efe8;
+border-radius:10px;
+padding:12px;
+border:none;
+text-align:left;
+cursor:pointer;
+transition:transform .12s ease,box-shadow .12s;
 }
 .answer-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 8px 20px rgba(0,0,0,0.06);
+transform:translateY(-3px);
+box-shadow:0 8px 20px rgba(0,0,0,0.06);
 }
 
 .answer-btn.selected {
-  background-color: var(--accent);
-  color: var(--text);
-  /* 增加選中按鈕的陰影，讓效果更明顯 */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+background-color: var(--accent);
+color: var(--text);
+/* 增加選中按鈕的陰影，讓效果更明顯 */
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .qimage{width:100%;height:auto;border-radius:10px;margin-bottom:12px;object-fit:cover}
@@ -95,21 +103,27 @@ html,body{
 
 /* 打字機效果 */
 .typewriter {
-  overflow: hidden;
-  border-right: .15em solid var(--cream);
-  white-space: pre-wrap;
-  margin: 0 auto;
-  animation: caret 1s steps(1) infinite;
+overflow: hidden;
+border-right: .15em solid var(--cream);
+white-space: pre-wrap;
+margin: 0 auto;
+animation: caret 1s steps(1) infinite;
 }
 
 @keyframes caret {
-  50% { border-color: transparent; }
+50% { border-color: transparent; }
 }
 
 /* Responsive */
 @media (max-width:600px){
-  .container{padding:12px}
-  .logo{max-width:180px}
-  .card{padding:16px}
-  .answer-btn{font-size:15px;padding:10px}
+.container{padding:12px}
+.logo{max-width:180px}
+.card{padding:16px}
+.answer-btn{font-size:15px;padding:10px}
+}
+
+/* 新增樣式：將下一頁按鈕置中 /
+#quiz .nav {
+display: flex;
+justify-content: center; / 將子元素（按鈕）水平置中 */
 }
