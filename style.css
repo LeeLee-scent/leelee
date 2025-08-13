@@ -11,11 +11,12 @@
 html,body{
   height:100%;
   margin:0;
-  /* 更新字體設定，以確保標楷體顯示 */
   font-family: "ZCOOL KuaiLe", "標楷體", "BiauKai", "DFKai-SB", "KaiTi", "Noto Sans TC", sans-serif;
-  background:var(--bg);
   color:var(--text);
   -webkit-font-smoothing:antialiased;
+
+  /* 新增：柔和的漸層背景 */
+  background: linear-gradient(135deg, #fdf8f3, #ece0d1);
 }
 .site-header{display:flex;justify-content:center;padding:24px 12px}
 .logo{max-width:240px;height:auto}
