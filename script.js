@@ -144,8 +144,7 @@ function renderQuestion(){
     btn.className = 'answer-btn';
     btn.textContent = a.text;
     btn.style.color = "#3b2f2f"; // 深色字
-    btn.dataset.type = a.type; // 新增 data 屬性來儲存類型
-    btn.addEventListener('click', ()=> selectAnswer(btn));
+    btn.addEventListener('click', ()=> selectAnswer(a.type));
     answersDiv.appendChild(btn);
   });
   nextBtn.style.display = 'none';
@@ -154,22 +153,9 @@ function renderQuestion(){
   typeText(questionTitle, q.question);
 }
 
-function selectAnswer(selectedBtn){
-  const selectedType = selectedBtn.dataset.type;
-
-  // 清除所有按鈕的選中狀態和禁用狀態
-  answersDiv.querySelectorAll('button').forEach(b => {
-    b.classList.remove('selected');
-    b.disabled = true;
-  });
-
-  // 將選中的按鈕加上選中狀態
-  selectedBtn.classList.add('selected');
-
-  // 更新分數
-  scores = { woody:0, citrus:0, floral:0, musk:0 };
-  scores[selectedType]++;
-
+function selectAnswer(type){
+  scores[type]++;
+  answersDiv.querySelectorAll('button').forEach(b=>b.disabled=true);
   if(current < total-1){
     nextBtn.style.display = 'inline-block';
   } else {
