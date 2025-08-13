@@ -93,6 +93,7 @@ const results = {
 let current = 0;
 let scores = { woody:0, citrus:0, floral:0, musk:0 };
 const total = questions.length;
+let currentSelection = null; // 新增變數來追蹤當前的選擇
 
 // Elements
 const intro = document.getElementById('intro');
@@ -139,12 +140,14 @@ function renderQuestion(){
   questionImage.src = q.image;
   progressText.textContent = `第 ${current+1} 題 / ${total} 題`;
   answersDiv.innerHTML = '';
+  currentSelection = null; // 重置當前選擇
   q.answers.forEach((a) => {
     const btn = document.createElement('button');
     btn.className = 'answer-btn';
     btn.textContent = a.text;
     btn.style.color = "#3b2f2f"; // 深色字
-    btn.addEventListener('click', ()=> selectAnswer(a.type));
+    btn.dataset.type = a.type; // 新增 data 屬性來儲存類型
+    btn.addEventListener('click', ()=> selectAnswer(btn));
     answersDiv.appendChild(btn);
   });
   nextBtn.style.display = 'none';
@@ -153,20 +156,41 @@ function renderQuestion(){
   typeText(questionTitle, q.question);
 }
 
-function selectAnswer(type){
-  scores[type]++;
-  answersDiv.querySelectorAll('button').forEach(b=>b.disabled=true);
-  if(current < total-1){
+function selectAnswer(selectedBtn){
+  const selectedType = selectedBtn.dataset.type;
+
+  // 清除所有按鈕的選中狀態
+  answersDiv.querySelectorAll('button').forEach(b => {
+    b.classList.remove('selected');
+  });
+
+  // 將選中的按鈕加上選中狀態
+  selectedBtn.classList.add('selected');
+  currentSelection = selectedType;
+
+  if(currentSelection && current < total-1){
     nextBtn.style.display = 'inline-block';
-  } else {
-    showResult();
-  }
-  nextBtn.onclick = ()=>{
-    current++;
-    if(current < total) renderQuestion();
-    nextBtn.style.display = 'none';
-  };
+  } else if (currentSelection && current === total-1) {
+    // 最後一題，直接顯示結果
+    nextBtn.style.display = 'inline-block';
+  } else {
+    nextBtn.style.display = 'none';
+  }
 }
+
+nextBtn.addEventListener('click', ()=>{
+  if (currentSelection) {
+    scores = { woody:0, citrus:0, floral:0, musk:0 };
+    scores[currentSelection]++;
+    current++;
+    if(current < total) {
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  }
+});
+
 
 function showResult(){
   quiz.classList.add('hidden');
