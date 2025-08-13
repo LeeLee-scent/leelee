@@ -11,7 +11,8 @@
 html,body{
   height:100%;
   margin:0;
-  font-family: "標楷體", "BiauKai", "DFKai-SB", "KaiTi", "Noto Sans TC", sans-serif;
+  /* 更新字體設定，以確保標楷體顯示 */
+  font-family: "ZCOOL KuaiLe", "標楷體", "BiauKai", "DFKai-SB", "KaiTi", "Noto Sans TC", sans-serif;
   background:var(--bg);
   color:var(--text);
   -webkit-font-smoothing:antialiased;
@@ -19,9 +20,15 @@ html,body{
 .site-header{display:flex;justify-content:center;padding:24px 12px}
 .logo{max-width:240px;height:auto}
 .container{max-width:720px;margin:0 auto;padding:16px}
-.card{background:var(--card);border-radius:14px;padding:20px;margin-bottom:18px;box-shadow:0 6px 24px rgba(75,63,54,0.06)}
+.card{
+  background:var(--card);
+  /* 調整圓角和陰影，讓卡片更柔和 */
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:18px;
+  box-shadow:0 8px 20px rgba(75,63,54,0.08);
+}
 
-/* 新增樣式：將 intro 區塊內容置中 */
 #intro {
   display: flex;
   flex-direction: column;
@@ -33,7 +40,6 @@ html,body{
   color:var(--cream);
   margin-bottom:18px;
   text-align:center;
-  /* 確保文字換行 */
   white-space:pre-wrap;
   font-size:1.2em;
 }
@@ -48,7 +54,7 @@ html,body{
   transition: all 0.2s ease-in-out;
 }
 .btn.primary{background:var(--accent);font-weight:600}
-/* 新增 hover 樣式 */
+/* 調整 hover 效果，讓變化更細膩 */
 .btn.primary:hover{
   background-color: #d1b8a5;
   transform: translateY(-2px);
@@ -65,12 +71,16 @@ html,body{
   cursor:pointer;
   transition:transform .12s ease,box-shadow .12s;
 }
-.answer-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,0.06)}
+.answer-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.06);
+}
 
-/* 新增：選中按鈕的樣式 */
 .answer-btn.selected {
   background-color: var(--accent);
   color: var(--text);
+  /* 增加選中按鈕的陰影，讓效果更明顯 */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .qimage{width:100%;height:auto;border-radius:10px;margin-bottom:12px;object-fit:cover}
