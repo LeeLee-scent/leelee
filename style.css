@@ -19,7 +19,7 @@ html,body{
   background: linear-gradient(135deg, #fdf8f3, #ece0d1) !important;
 }
 .site-header{display:flex;justify-content:center;padding:24px 12px}
-.logo{max-width:400px;height:auto}
+.logo{max-width:540px;height:auto}
 .container{max-width:720px;margin:0 auto;padding:16px}
 .card{
   background:var(--card);
@@ -111,7 +111,7 @@ html,body{
 /* Responsive */
 @media (max-width:600px){
   .container{padding:12px}
-  .logo{max-width:180px}
+  .logo{max-width:280px}
   .card{padding:16px}
   .answer-btn{font-size:15px;padding:10px}
 }
