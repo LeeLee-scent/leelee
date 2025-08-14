@@ -12,7 +12,7 @@ html,body{
   height:100%;
   margin:0;
   /* 更新字體設定，以確保標楷體顯示 */
-  font-family: "ZCOOL KuaiLe", "標楷體", "BiauKai", "DFKai-SB", "KaiTi", "Noto Sans TC", sans-serif;
+  font-family: "ZCOOL KuaiLe", "Noto Sans TC", "BiauKai", "DFKai-SB", "KaiTi", "Noto Sans TC", sans-serif;
   color:var(--text);
   -webkit-font-smoothing:antialiased;
   /* 終極解決方案：強制使用漸層背景 */
