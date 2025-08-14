@@ -22,7 +22,9 @@ html,body{
   padding:20px 12px;
 }
 .logo{
-  max-width:500px;
+  /* 修正 Logo 寬度與容器同寬 */
+  max-width:720px;
+  width:100%;
   height:auto;
 }
 .container{max-width:720px;margin:0 auto;padding:16px}
@@ -48,11 +50,18 @@ html,body{
   opacity: 0; /* 初始隱藏 */
 }
 
+/* 移除原本的 h1 樣式，改用新的 */
+h1 {
+  display: none;
+}
+
 /* 新增樣式：根據參考圖調整標題區塊 */
 .intro-title-container {
   display: flex;
   align-items: center;
+  justify-content: center; /* 確保標題置中 */
   margin-bottom: 24px;
+  opacity: 0; /* 初始隱藏，由 JS 控制顯示 */
 }
 .intro-title-left {
   font-family: "Noto Serif TC", serif;
@@ -70,15 +79,10 @@ html,body{
   line-height: 1.2;
 }
 
-h1 {
-  display: none; /* 隱藏原本的 h1 */
+/* 內文區塊 */
+.intro-text-wrapper {
+  opacity: 0; /* 初始隱藏，等待動畫觸發 */
 }
-
-/* 初始隱藏文字，等待動畫觸發 */
-.lead, #startBtn {
-  opacity: 0;
-}
-
 .lead{
   color:var(--cream);
   margin-bottom:6px;
@@ -159,15 +163,9 @@ h1 {
   margin-top:18px;
 }
 .site-footer{text-align:center;padding:18px 0;color:var(--muted)}
+/* 打字機效果，隱藏原本的打字機效果 */
 .typewriter {
-  overflow: hidden;
-  border-right: .15em solid var(--cream);
-  white-space: pre-wrap;
-  margin: 0 auto;
-  animation: caret 1s steps(1) infinite;
-}
-@keyframes caret {
-  50% { border-color: transparent; }
+  display: none;
 }
 
 /* 新增：Logo 浮現動畫 */
@@ -200,4 +198,9 @@ h1 {
 #quiz .nav {
   display: flex;
   justify-content: center;
+}
+/* 開始測驗按鈕置中 */
+#intro #startBtn {
+  display: block;
+  margin: 0 auto;
 }
