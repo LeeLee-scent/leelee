@@ -66,24 +66,28 @@ const results = {
   woody: {
     title: "木質沉穩型",
     image: "images/result_woody.jpg",
+    hashtags: ["#安定可靠", "#沉穩內斂", "#腳踏實地"],
     description: "你是個沈穩內斂的思考者，內心有著豐富而安靜的宇宙。你像森林中的大樹，給人一種可靠、值得信賴的感覺，不隨波逐流，腳踏實地地走自己的路。",
     analysis: "你在乎事物的深度與本質，喜歡沉浸在書本、音樂或靜謐的環境中。你的選擇顯示你追求的是一種內在的平和與安定感。木質調香氣，如**檀香**、**雪松**、**岩蘭草**，能完美襯托你踏實可靠的性格，讓你感到被大地所環抱的安心與力量。"
   },
   citrus: {
     title: "柑橘清新型",
     image: "images/result_citrus.jpg",
+    hashtags: ["#活潑開朗", "#樂觀正向", "#自由無拘"],
     description: "你充滿活力與朝氣，是朋友眼中的陽光發電機。你總能用樂觀的態度面對挑戰，樂於探索新事物，為周圍的人帶來新鮮感與正能量。",
     analysis: "你的選擇傾向輕盈、明亮的選項，反映出你熱愛自由、無拘無束的靈魂。你享受戶外活動，喜歡在動態中找尋自我。柑橘調，例如**葡萄柚**、**檸檬**、**佛手柑**，能激發你的熱情與創造力，讓你的每一天都充滿清新活力的氣息。"
   },
   floral: {
     title: "花香柔和型",
     image: "images/result_floral.jpg",
+    hashtags: ["#溫柔細膩", "#療癒人心", "#浪漫優雅"],
     description: "你擁有溫柔細膩的特質，能敏銳地捕捉他人的情感，是個極具同理心的傾聽者。你的氣質優雅而親切，像盛開的花朵般充滿療癒人心的魅力。",
     analysis: "你傾向浪漫與情感連結的選擇，在人際關係中扮演著溫暖、滋養的角色。你的感性與內在力量，使你總能成為別人尋求慰藉的對象。花香調，如**玫瑰**、**茉莉**、**橙花**，能凸顯你的柔美與優雅，同時增強你的個人魅力。"
   },
   musk: {
     title: "麝香神秘型",
     image: "images/result_musk.jpg",
+    hashtags: ["#高雅內斂", "#神秘直覺", "#簡單俐落"],
     description: "你是一位安靜卻充滿深度的人，擁有內斂氣質與感性直覺。你的存在像月光般神秘而引人遐想，不張揚，卻有種讓人忍不住想靠近的吸引力。",
     analysis: "你偏好內省、獨處的選項，擁有強烈的個人風格與敏銳的直覺。你喜歡觀察與感受，不輕易表達但內心世界豐富。麝香、**琥珀**、**廣藿香**等調性，能完美烘托你乾淨俐落、高雅內斂的特質，讓人對你的神秘感留下深刻印象。"
   }
@@ -108,7 +112,7 @@ const resultSection = document.getElementById('result');
 const resultTitle = document.getElementById('resultTitle');
 const resultImage = document.getElementById('resultImage');
 const resultDesc = document.getElementById('resultDesc');
-const resultAnalysis = document.getElementById('resultAnalysis');
+const resultHashtags = document.getElementById('resultHashtags');
 const restartBtn = document.getElementById('restartBtn');
 const shareBtn = document.getElementById('shareBtn');
 
@@ -117,9 +121,7 @@ const introTitleContainer = document.querySelector('.intro-title-container');
 const introTitleLeft = document.querySelector('.intro-title-left');
 const introTitleRight = document.querySelector('.intro-title-right');
 const introTextWrapper = document.querySelector('.intro-text-wrapper');
-const introLeads = document.querySelectorAll('#intro .lead');
 
-// 打字機效果
 function typeText(element, text, speed = 50, callback){
   element.textContent = '';
   let i = 0;
@@ -135,28 +137,21 @@ function typeText(element, text, speed = 50, callback){
   typing();
 }
 
-// 開場動畫控制
 function animateIntroPage() {
-  // 步驟 1: Logo 浮現
   logo.style.animation = 'fadeInUp 1s forwards';
 
-  // 步驟 2: Logo 動畫結束後，執行標題打字機效果
   logo.addEventListener('animationend', () => {
     introTitleContainer.style.opacity = 1;
-    // 速度調整為更慢
     typeText(introTitleLeft, '測一測', 100, () => {
       typeText(introTitleRight, '屬於你的風格香', 100, () => {
         
-        // 步驟 3: 標題打字結束後，內文漸入
         introTextWrapper.style.animation = 'fadeIn 1s forwards';
-        // 最後讓開始按鈕也漸入
         startBtn.style.animation = 'fadeIn 1s forwards';
       });
     });
   }, { once: true });
 }
 
-// 頁面載入後立即觸發開場動畫
 document.addEventListener('DOMContentLoaded', animateIntroPage);
 
 startBtn.addEventListener('click', ()=>{
@@ -227,10 +222,16 @@ function showResult(){
     if(scores[k] > max){ max = scores[k]; highest = k; }
   }
   const r = results[highest];
+  
+  // 更新結果頁面
   resultTitle.textContent = r.title;
   resultImage.src = r.image;
-  resultDesc.textContent = r.description;
-  resultAnalysis.innerHTML = `屬於你的風格是 <strong>${r.title}</strong>，<br>${r.analysis}`;
+  
+  // 顯示標籤
+  resultHashtags.innerHTML = r.hashtags.map(tag => `<div>${tag}</div>`).join('');
+  
+  // 結合描述和分析
+  resultDesc.innerHTML = `<p>${r.description}</p><p>${r.analysis}</p>`;
 }
 
 restartBtn.addEventListener('click', ()=>{
