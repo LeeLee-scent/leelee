@@ -22,7 +22,6 @@ html,body{
   padding:20px 12px;
 }
 .logo{
-  /* 修正 Logo 寬度與容器同寬 */
   max-width:720px;
   width:100%;
   height:auto;
@@ -35,8 +34,6 @@ html,body{
   margin-bottom:18px;
   box-shadow:0 8px 20px rgba(75,63,54,0.08);
 }
-
-/* 移除 Logo 卡片的邊框和陰影，使其更輕盈 */
 .site-header .card {
   padding: 0;
   box-shadow: none;
@@ -47,21 +44,21 @@ html,body{
   width: 100%;
   display: block;
   margin: 0 auto;
-  opacity: 0; /* 初始隱藏 */
+  opacity: 0;
 }
 
-/* 移除原本的 h1 樣式，改用新的 */
-h1 {
-  display: none;
+#intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
-
-/* 新增樣式：根據參考圖調整標題區塊 */
 .intro-title-container {
   display: flex;
   align-items: center;
-  justify-content: center; /* 確保標題置中 */
+  justify-content: center;
   margin-bottom: 24px;
-  opacity: 0; /* 初始隱藏，由 JS 控制顯示 */
+  opacity: 0;
 }
 .intro-title-left {
   font-family: "Noto Serif TC", serif;
@@ -78,10 +75,8 @@ h1 {
   font-size: 2em;
   line-height: 1.2;
 }
-
-/* 內文區塊 */
 .intro-text-wrapper {
-  opacity: 0; /* 初始隱藏，等待動畫觸發 */
+  opacity: 0;
 }
 .lead{
   color:var(--cream);
@@ -91,6 +86,11 @@ h1 {
   font-size:1.2em;
   line-height: 1.4;
   letter-spacing: 0.5px;
+}
+#intro #startBtn {
+  display: block;
+  margin: 0 auto;
+  opacity: 0;
 }
 .btn{
   padding:10px 16px;
@@ -129,32 +129,6 @@ h1 {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 .qimage{width:100%;height:auto;border-radius:10px;margin-bottom:12px;object-fit:cover}
-.result-image{
-  max-width:420px;
-  width:100%;
-  height:auto;
-  border-radius:14px;
-  display:block;
-  margin:14px auto;
-  box-shadow: 0 10px 30px rgba(75,63,54,0.12);
-}
-.result-desc{
-  background:#fff7ef;
-  border-radius:14px;
-  padding:20px;
-  border:1px solid #f0d9c7;
-  color:var(--muted);
-  margin-top:20px;
-  line-height: 1.6;
-}
-.result-analysis{
-  background:var(--card);
-  border-radius:14px;
-  padding:20px;
-  margin-top:16px;
-  line-height:1.6;
-  border:1px solid #e9e2db;
-}
 .progress{font-size:14px;color:var(--muted);margin-bottom:8px}
 .actions{
   display:flex;
@@ -163,12 +137,18 @@ h1 {
   margin-top:18px;
 }
 .site-footer{text-align:center;padding:18px 0;color:var(--muted)}
-/* 打字機效果，隱藏原本的打字機效果 */
 .typewriter {
-  display: none;
+  overflow: hidden;
+  border-right: .15em solid var(--cream);
+  white-space: pre-wrap;
+  margin: 0 auto;
+  animation: caret 1s steps(1) infinite;
+}
+@keyframes caret {
+  50% { border-color: transparent; }
 }
 
-/* 新增：Logo 浮現動畫 */
+/* 動畫效果 */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -179,15 +159,74 @@ h1 {
     transform: translateY(0);
   }
 }
-/* 新增：文字漸入動畫 */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-/* 套用動畫的 class */
 .animate-fade-in {
   animation: fadeIn 1s forwards;
 }
+
+/* 全新結果頁面樣式 */
+#result {
+  text-align: center;
+}
+.result-header {
+  margin-bottom: 24px;
+}
+.result-subtitle {
+  font-family: "Noto Serif TC", serif;
+  font-size: 1.4em;
+  font-weight: 400;
+  color: var(--muted);
+  margin: 0 0 8px 0;
+}
+.result-title {
+  font-family: "Noto Serif TC", serif;
+  font-weight: 700;
+  font-size: 2.5em;
+  color: var(--text);
+  margin: 0;
+}
+.result-image-container {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto 24px auto;
+}
+.result-main-image {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  display: block;
+}
+.result-hashtags {
+  position: absolute;
+  top: 15%;
+  right: 15px;
+  font-family: "Noto Serif TC", serif;
+  font-size: 1.1em;
+  font-weight: 400;
+  color: #fff;
+  text-align: right;
+  line-height: 1.6;
+}
+.result-desc-text {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid #e9e2db;
+  color: var(--muted);
+  line-height: 1.6;
+  text-align: left;
+  margin-top: 16px;
+}
+.result-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+.result-analysis{ display:none; } /* 隱藏原本的分析區塊 */
 
 @media (max-width:600px){
   .container{padding:12px}
@@ -198,9 +237,4 @@ h1 {
 #quiz .nav {
   display: flex;
   justify-content: center;
-}
-/* 開始測驗按鈕置中 */
-#intro #startBtn {
-  display: block;
-  margin: 0 auto;
 }
