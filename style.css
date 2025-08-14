@@ -45,8 +45,8 @@ html,body{
   white-space:pre-wrap !important;
   font-size:1.2em;
   /* 調整文字行距 */
-  line-height: 0.5; /* 您可以根據喜好調整這個數值 */
-  letter-spacing: 1px; /* 新增字距設定，可以試試 0.5px 或 1px */
+  line-height: 1; /* 您可以根據喜好調整這個數值 */
+  letter-spacing: 0.5px; /* 新增字距設定，可以試試 0.5px 或 1px */
 }
 .btn{
   padding:10px 16px;
