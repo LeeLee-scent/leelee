@@ -93,7 +93,7 @@ const results = {
 let current = 0;
 let scores = { woody:0, citrus:0, floral:0, musk:0 };
 const total = questions.length;
-let currentSelection = null; // 新增變數來追蹤當前的選擇
+let currentSelection = null;
 
 // Elements
 const intro = document.getElementById('intro');
@@ -113,12 +113,14 @@ const restartBtn = document.getElementById('restartBtn');
 const shareBtn = document.getElementById('shareBtn');
 
 const logo = document.querySelector('.site-header .logo');
+const introTitleContainer = document.querySelector('.intro-title-container');
 const introTitleLeft = document.querySelector('.intro-title-left');
 const introTitleRight = document.querySelector('.intro-title-right');
+const introTextWrapper = document.querySelector('.intro-text-wrapper');
 const introLeads = document.querySelectorAll('#intro .lead');
 
 // 打字機效果
-function typeText(element, text, speed = 30, callback){
+function typeText(element, text, speed = 50, callback){
   element.textContent = '';
   let i = 0;
   function typing(){
@@ -133,30 +135,25 @@ function typeText(element, text, speed = 30, callback){
   typing();
 }
 
-// 新增：開場動畫控制
+// 開場動畫控制
 function animateIntroPage() {
   // 步驟 1: Logo 浮現
   logo.style.animation = 'fadeInUp 1s forwards';
 
-  // 步驟 2: Logo 動畫結束後，執行打字機效果
+  // 步驟 2: Logo 動畫結束後，執行標題打字機效果
   logo.addEventListener('animationend', () => {
-    
-    // 步驟 2.1: 標題左側打字效果
-    typeText(introTitleLeft, '測一測', 50, () => {
-      // 步驟 2.2: 標題右側打字效果
-      typeText(introTitleRight, '屬於你的風格香', 50, () => {
+    introTitleContainer.style.opacity = 1;
+    // 速度調整為更慢
+    typeText(introTitleLeft, '測一測', 100, () => {
+      typeText(introTitleRight, '屬於你的風格香', 100, () => {
         
         // 步驟 3: 標題打字結束後，內文漸入
-        setTimeout(() => {
-          introLeads.forEach(lead => {
-            lead.classList.add('animate-fade-in');
-          });
-          // 最後讓開始按鈕也漸入
-          startBtn.classList.add('animate-fade-in');
-        }, 500); // 延遲 500ms
+        introTextWrapper.style.animation = 'fadeIn 1s forwards';
+        // 最後讓開始按鈕也漸入
+        startBtn.style.animation = 'fadeIn 1s forwards';
       });
     });
-  }, { once: true }); // 確保事件只執行一次
+  }, { once: true });
 }
 
 // 頁面載入後立即觸發開場動畫
