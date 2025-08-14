@@ -19,7 +19,7 @@ html,body{
   background: linear-gradient(135deg, #fdf8f3, #ece0d1) !important;
 }
 .site-header{display:flex;justify-content:center;padding:24px 12px}
-.logo{max-width:240px;height:auto}
+.logo{max-width:400px;height:auto}
 .container{max-width:720px;margin:0 auto;padding:16px}
 .card{
   background:var(--card);
@@ -45,7 +45,7 @@ html,body{
   white-space:pre-wrap !important;
   font-size:1.2em;
   /* 調整文字行距 */
-  line-height: 1.4; /* 您可以根據喜好調整這個數值 */
+  line-height: 0.5; /* 您可以根據喜好調整這個數值 */
 }
 .btn{
   padding:10px 16px;
