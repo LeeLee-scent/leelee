@@ -14,34 +14,10 @@ html,body{
   font-family: "ZCOOL KuaiLe", "Noto Sans TC", "BiauKai", "DFKai-SB", "KaiTi", sans-serif;
   color:var(--text);
   -webkit-font-smoothing:antialiased;
-  /* 更新背景：疊加動態圖案 */
-  background: linear-gradient(135deg, #fdf8f3, #ece0d1);
-  overflow: hidden; /* 隱藏超出視窗的圖案 */
-  position: relative;
+  /* 更新背景：疊加紙張紋理 */
+  background: linear-gradient(135deg, #fdf8f3, #ece0d1) !important;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><defs><filter id="n" x="-50%" y="-50%" width="200%" height="200%"><feTurbulence type="fractalNoise" baseFrequency="0.2" numOctaves="4" stitchTiles="stitch" result="a"/><feColorMatrix in="a" type="saturate" values="0"/><feBlend in="SourceGraphic" in2="a" mode="multiply"/></filter></defs><rect width="100%" height="100%" fill="%23ece0d1" filter="url(%23n)" opacity="0.4"/></svg>');
 }
-
-/* 新增：動態漂浮圖案容器 */
-body::before, body::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  background-repeat: repeat;
-  background-image: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="%23efe1d3" fill-opacity="0.3"><path d="M0 40 L40 0 L40 40 Z" /></g></svg>');
-}
-body::after {
-  background-image: url('data:image/svg+xml;utf8,<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><g fill="%23efe1d3" fill-opacity="0.5"><circle cx="15" cy="15" r="10" /></g></svg>');
-  animation: floatUp 20s infinite linear;
-}
-body::before {
-  background-image: url('data:image/svg+xml;utf8,<svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"><g fill="%23efe1d3" fill-opacity="0.2"><polygon points="25,0 32,18 50,20 38,32 40,50 25,40 10,50 12,32 0,20 18,18" /></g></svg>');
-  animation: floatDown 25s infinite linear;
-}
-
 .site-header{
   display:flex;
   justify-content:center;
@@ -58,9 +34,8 @@ body::before {
   border-radius:16px;
   padding:20px;
   margin-bottom:18px;
-  box-shadow:0 8px 20px rgba(75,63,54,0.08);
-  /* 新增：卡片內陰影 */
-  box-shadow: 0 8px 20px rgba(75,63,54,0.08), inset 0 2px 4px rgba(0,0,0,0.04);
+  /* 更新：增加卡片內陰影，提升立體感 */
+  box-shadow:0 8px 20px rgba(75,63,54,0.08), inset 0 1px 2px rgba(0,0,0,0.02);
 }
 .site-header .card {
   padding: 0;
@@ -73,6 +48,19 @@ body::before {
   display: block;
   margin: 0 auto;
   opacity: 0;
+}
+
+/* 頁面切換時的淡入淡出效果 */
+#intro, #quiz, #result {
+  transition: opacity 0.5s ease-in-out;
+}
+.hidden{
+  display:none;
+  opacity: 0;
+}
+.visible {
+  display: block;
+  opacity: 1;
 }
 
 #intro {
@@ -136,7 +124,6 @@ body::before {
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
-.hidden{display:none}
 .answers{display:flex;flex-direction:column;gap:12px;margin-top:12px}
 .answer-btn{
   background:#f6efe8;
@@ -193,17 +180,6 @@ body::before {
 }
 .animate-fade-in {
   animation: fadeIn 1s forwards;
-}
-/* 新增：漂浮動畫 */
-@keyframes floatUp {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-50%) rotate(3deg); }
-  100% { transform: translateY(-100%) rotate(0deg); }
-}
-@keyframes floatDown {
-  0% { transform: translateY(-100%) rotate(0deg); }
-  50% { transform: translateY(-50%) rotate(-3deg); }
-  100% { transform: translateY(0) rotate(0deg); }
 }
 
 /* 全新結果頁面樣式 */
