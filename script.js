@@ -154,18 +154,9 @@ function animateIntroPage() {
 
 document.addEventListener('DOMContentLoaded', animateIntroPage);
 
-// 新增函式：切換頁面時使用過渡效果
-function switchPage(fromPage, toPage) {
-  fromPage.style.opacity = 0;
-  setTimeout(() => {
-    fromPage.classList.add('hidden');
-    toPage.classList.remove('hidden');
-    toPage.style.opacity = 1;
-  }, 500); // 等待過渡效果完成
-}
-
 startBtn.addEventListener('click', ()=>{
-  switchPage(intro, quiz);
+  intro.classList.add('hidden');
+  quiz.classList.remove('hidden');
   current = 0;
   scores = { woody:0, citrus:0, floral:0, musk:0 };
   renderQuestion();
@@ -223,7 +214,8 @@ nextBtn.addEventListener('click', ()=>{
 
 
 function showResult(){
-  switchPage(quiz, resultSection);
+  quiz.classList.add('hidden');
+  resultSection.classList.remove('hidden');
   let highest = 'woody';
   let max = -1;
   for(const k in scores){
@@ -231,16 +223,20 @@ function showResult(){
   }
   const r = results[highest];
   
+  // 更新結果頁面
   resultTitle.textContent = r.title;
   resultImage.src = r.image;
   
+  // 顯示標籤
   resultHashtags.innerHTML = r.hashtags.map(tag => `<div>${tag}</div>`).join('');
   
+  // 結合描述和分析
   resultDesc.innerHTML = `<p>${r.description}</p><p>${r.analysis}</p>`;
 }
 
 restartBtn.addEventListener('click', ()=>{
-  switchPage(resultSection, intro);
+  resultSection.classList.add('hidden');
+  intro.classList.remove('hidden');
 });
 
 shareBtn.addEventListener('click', ()=>{
