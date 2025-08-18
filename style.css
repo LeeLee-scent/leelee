@@ -1,240 +1,241 @@
+
 /* Style: 文青療癒手繪風 (簡約版) */
 :root{
-  --bg:#fffaf5;
-  --card:#fff;
-  --accent:#e6d3c4;
-  --text:#4b3f36;
-  --muted:#7a6a60;
-  --cream:#3b2f2f; /* 米白色 */
+  --bg:#fffaf5;
+  --card:#fff;
+  --accent:#e6d3c4;
+  --text:#4b3f36;
+  --muted:#7a6a60;
+  --cream:#3b2f2f; /* 米白色 */
 }
 *{box-sizing:border-box}
 html,body{
-  height:100%;
-  margin:0;
-  font-family: "ZCOOL KuaiLe", "Noto Sans TC", "BiauKai", "DFKai-SB", "KaiTi", sans-serif;
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  background: linear-gradient(135deg, #fdf8f3, #ece0d1) !important;
+  height:100%;
+  margin:0;
+  font-family: "ZCOOL KuaiLe", "Noto Sans TC", "BiauKai", "DFKai-SB", "KaiTi", sans-serif;
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  background: linear-gradient(135deg, #fdf8f3, #ece0d1) !important;
 }
 .site-header{
-  display:flex;
-  justify-content:center;
-  padding:20px 12px;
+  display:flex;
+  justify-content:center;
+  padding:20px 12px;
 }
 .logo{
-  max-width:720px;
-  width:100%;
-  height:auto;
+  max-width:720px;
+  width:100%;
+  height:auto;
 }
 .container{max-width:720px;margin:0 auto;padding:16px}
 .card{
-  background:var(--card);
-  border-radius:16px;
-  padding:20px;
-  margin-bottom:18px;
-  box-shadow:0 8px 20px rgba(75,63,54,0.08);
+  background:var(--card);
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:18px;
+  box-shadow:0 8px 20px rgba(75,63,54,0.08);
 }
 .site-header .card {
-  padding: 0;
-  box-shadow: none;
-  margin-bottom: 0;
+  padding: 0;
+  box-shadow: none;
+  margin-bottom: 0;
 }
 .site-header .logo {
-  max-width: 400px;
-  width: 100%;
-  display: block;
-  margin: 0 auto;
-  opacity: 0;
+  max-width: 400px;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  opacity: 0;
 }
 
 #intro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 .intro-title-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  opacity: 0;
 }
 .intro-title-left {
-  font-family: "Noto Serif TC", serif;
-  font-weight: 700;
-  font-size: 2em;
-  padding-right: 16px;
-  margin-right: 16px;
-  border-right: 2px solid var(--text);
-  line-height: 1.2;
+  font-family: "Noto Serif TC", serif;
+  font-weight: 700;
+  font-size: 2em;
+  padding-right: 16px;
+  margin-right: 16px;
+  border-right: 2px solid var(--text);
+  line-height: 1.2;
 }
 .intro-title-right {
-  font-family: "Noto Serif TC", serif;
-  font-weight: 400;
-  font-size: 2em;
-  line-height: 1.2;
+  font-family: "Noto Serif TC", serif;
+  font-weight: 400;
+  font-size: 2em;
+  line-height: 1.2;
 }
 .intro-text-wrapper {
-  opacity: 0;
+  opacity: 0;
 }
 .lead{
-  color:var(--cream);
-  margin-bottom:6px;
-  text-align:center !important;
-  white-space:pre-wrap !important;
-  font-size:1.2em;
-  line-height: 1.4;
-  letter-spacing: 0.5px;
+  color:var(--cream);
+  margin-bottom:6px;
+  text-align:center !important;
+  white-space:pre-wrap !important;
+  font-size:1.2em;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
 }
 #intro #startBtn {
-  display: block;
-  margin: 0 auto;
-  opacity: 0;
+  display: block;
+  margin: 0 auto;
+  opacity: 0;
 }
 .btn{
-  padding:10px 16px;
-  border-radius:12px;
-  border:none;
-  background:#efe1d3;
-  color:var(--text);
-  cursor:pointer;
-  font-size:16px;
-  transition: all 0.2s ease-in-out;
+  padding:10px 16px;
+  border-radius:12px;
+  border:none;
+  background:#efe1d3;
+  color:var(--text);
+  cursor:pointer;
+  font-size:16px;
+  transition: all 0.2s ease-in-out;
 }
 .btn.primary{background:var(--accent);font-weight:600}
 .btn.primary:hover{
-  background-color: #d1b8a5;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background-color: #d1b8a5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 .hidden{display:none}
 .answers{display:flex;flex-direction:column;gap:12px;margin-top:12px}
 .answer-btn{
-  background:#f6efe8;
-  border-radius:10px;
-  padding:12px;
-  border:none;
-  text-align:left;
-  cursor:pointer;
-  transition:transform .12s ease,box-shadow .12s;
+  background:#f6efe8;
+  border-radius:10px;
+  padding:12px;
+  border:none;
+  text-align:left;
+  cursor:pointer;
+  transition:transform .12s ease,box-shadow .12s;
 }
 .answer-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 8px 20px rgba(0,0,0,0.06);
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.06);
 }
 .answer-btn.selected {
-  background-color: var(--accent);
-  color: var(--text);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: var(--accent);
+  color: var(--text);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 .qimage{width:100%;height:auto;border-radius:10px;margin-bottom:12px;object-fit:cover}
 .progress{font-size:14px;color:var(--muted);margin-bottom:8px}
 .actions{
-  display:flex;
-  gap:12px;
-  justify-content:center;
-  margin-top:18px;
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin-top:18px;
 }
 .site-footer{text-align:center;padding:18px 0;color:var(--muted)}
 .typewriter {
-  overflow: hidden;
-  border-right: .15em solid var(--cream);
-  white-space: pre-wrap;
-  margin: 0 auto;
-  animation: caret 1s steps(1) infinite;
+  overflow: hidden;
+  border-right: .15em solid var(--cream);
+  white-space: pre-wrap;
+  margin: 0 auto;
+  animation: caret 1s steps(1) infinite;
 }
 @keyframes caret {
-  50% { border-color: transparent; }
+  50% { border-color: transparent; }
 }
 
 /* 動畫效果 */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 .animate-fade-in {
-  animation: fadeIn 1s forwards;
+  animation: fadeIn 1s forwards;
 }
 
 /* 全新結果頁面樣式 */
 #result {
-  text-align: center;
+  text-align: center;
 }
 .result-header {
-  margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 .result-subtitle {
-  font-family: "Noto Serif TC", serif;
-  font-size: 1.4em;
-  font-weight: 400;
-  color: var(--muted);
-  margin: 0 0 8px 0;
+  font-family: "Noto Serif TC", serif;
+  font-size: 1.4em;
+  font-weight: 400;
+  color: var(--muted);
+  margin: 0 0 8px 0;
 }
 .result-title {
-  font-family: "Noto Serif TC", serif;
-  font-weight: 700;
-  font-size: 2.5em;
-  color: var(--text);
-  margin: 0;
+  font-family: "Noto Serif TC", serif;
+  font-weight: 700;
+  font-size: 2.5em;
+  color: var(--text);
+  margin: 0;
 }
 .result-image-container {
-  position: relative;
-  max-width: 420px;
-  margin: 0 auto 24px auto;
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto 24px auto;
 }
 .result-main-image {
-  width: 100%;
-  height: auto;
-  border-radius: 14px;
-  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  display: block;
 }
 .result-hashtags {
-  position: absolute;
-  top: 15%;
-  right: 15px;
-  font-family: "Noto Serif TC", serif;
-  font-size: 1.1em;
-  font-weight: 400;
-  color: #fff;
-  text-align: right;
-  line-height: 1.6;
+  position: absolute;
+  top: 15%;
+  right: 15px;
+  font-family: "Noto Serif TC", serif;
+  font-size: 1.1em;
+  font-weight: 400;
+  color: #fff;
+  text-align: right;
+  line-height: 1.6;
 }
 .result-desc-text {
-  background: var(--card);
-  border-radius: 14px;
-  padding: 20px;
-  border: 1px solid #e9e2db;
-  color: var(--muted);
-  line-height: 1.6;
-  text-align: left;
-  margin-top: 16px;
+  background: var(--card);
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid #e9e2db;
+  color: var(--muted);
+  line-height: 1.6;
+  text-align: left;
+  margin-top: 16px;
 }
 .result-actions {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
 }
 .result-analysis{ display:none; } /* 隱藏原本的分析區塊 */
 
 @media (max-width:600px){
-  .container{padding:12px}
-  .logo{max-width:320px}
-  .card{padding:16px}
-  .answer-btn{font-size:15px;padding:10px}
+  .container{padding:12px}
+  .logo{max-width:320px}
+  .card{padding:16px}
+  .answer-btn{font-size:15px;padding:10px}
 }
 #quiz .nav {
-  display: flex;
-  justify-content: center;
+  display: flex;
+  justify-content: center;
 }
