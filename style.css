@@ -1,43 +1,53 @@
 /* Style: 文青療癒手繪風 (簡約版) */
 :root{
-  --bg:#fffaf5;
-  --card:#fff;
-  --accent:#e6d3c4;
-  --text:#4b3f36;
-  --muted:#7a6a60;
-  --cream:#3b2f2f; /* 米白色 */
+  --bg:#fffaf5;
+  --card:#fff;
+  --accent:#e6d3c4;
+  --text:#4b3f36;
+  --muted:#7a6a60;
+  --cream:#3b2f2f; /* 米白色 */
 }
 *{box-sizing:border-box}
 html,body{
-  height:100%;
-  margin:0;
-  font-family: "ZCOOL KuaiLe", "Noto Serif TC", "BiauKai", "DFKai-SB", "KaiTi", sans-serif;
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  background: linear-gradient(135deg, #fdf8f3, #ece0d1) !important;
+  height:100%;
+  margin:0;
+  font-family: "ZCOOL KuaiLe", "Noto Serif TC", "BiauKai", "DFKai-SB", "KaiTi", sans-serif;
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  background: linear-gradient(135deg, #fdf8f3, #ece0d1) !important;
 }
+/* 隱藏 header 區塊，因為它已被移除 */
 .site-header{
-  /* 因為 Logo 已被移動，這個區塊現在是空的，直接隱藏 */
-  display:none;
+  display: none;
 }
 .logo{
-  max-width:720px;
-  width:100%;
-  height:auto;
+  max-width:720px;
+  width:100%;
+  height:auto;
 }
-.container{max-width:720px;margin:0 auto;padding:16px}
+.container{
+  max-width:720px;
+  margin:0 auto;
+  padding:16px;
+  /* 這裡設定容器為相對定位，以利 Logo 圖片的絕對定位 */
+  position: relative;
+}
 .card{
-  background:var(--card);
-  border-radius:16px;
-  padding:20px;
-  margin-bottom:18px;
-  box-shadow:0 8px 20px rgba(75,63,54,0.08);
+  background:var(--card);
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:18px;
+  box-shadow:0 8px 20px rgba(75,63,54,0.08);
 }
-
-.site-header .card {
-  padding: 0;
-  box-shadow: none;
-  margin-bottom: 0;
+/* 這裡是新的 Logo 圖片樣式，將其精確定位在 intro 卡片上方 */
+.logo {
+  max-width: 400px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 向上移動一半高度，創造重疊效果 */
+  z-index: 10;
+  opacity: 0;
 }
 .site-header .logo {
   max-width: 400px;
@@ -58,15 +68,6 @@ html,body{
   text-align: center;
   /* 增加頂部內距，為 Logo 預留空間 */
   padding-top: 100px; 
-}
-.logo {
-  /* 讓 Logo 圖片位於卡片頂部，並保持置中 */
-  margin-bottom: 20px;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 300px; /* 調整 Logo 尺寸 */
 }
 .intro-title-container {
   display: flex;
