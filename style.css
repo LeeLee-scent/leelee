@@ -1,44 +1,42 @@
 /* Style: 文青療癒手繪風 (簡約版) */
 :root{
-  --bg:#fffaf5;
-  --card:#fff;
-  --accent:#e6d3c4;
-  --text:#4b3f36;
-  --muted:#7a6a60;
-  --cream:#3b2f2f; /* 米白色 */
+  --bg:#fffaf5;
+  --card:#fff;
+  --accent:#e6d3c4;
+  --text:#4b3f36;
+  --muted:#7a6a60;
+  --cream:#3b2f2f; /* 米白色 */
 }
 *{box-sizing:border-box}
 html,body{
-  height:100%;
-  margin:0;
-  font-family: "ZCOOL KuaiLe", "Noto Serif TC", "BiauKai", "DFKai-SB", "KaiTi", sans-serif;
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  background: linear-gradient(135deg, #fdf8f3, #ece0d1) !important;
+  height:100%;
+  margin:0;
+  font-family: "ZCOOL KuaiLe", "Noto Serif TC", "BiauKai", "DFKai-SB", "KaiTi", sans-serif;
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  background: linear-gradient(135deg, #fdf8f3, #ece0d1) !important;
 }
 .site-header{
-  display:flex;
-  justify-content:center;
-  padding:20px 12px;
+  /* 因為 Logo 已被移動，這個區塊現在是空的，直接隱藏 */
+  display:none;
 }
 .logo{
-  max-width:720px;
-  width:100%;
-  height:auto;
+  max-width:720px;
+  width:100%;
+  height:auto;
 }
 .container{max-width:720px;margin:0 auto;padding:16px}
 .card{
-  background:var(--card);
-  border-radius:16px;
-  padding:20px;
-  margin-bottom:18px;
-  box-shadow:0 8px 20px rgba(75,63,54,0.08);
+  background:var(--card);
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:18px;
+  box-shadow:0 8px 20px rgba(75,63,54,0.08);
 }
-/* 這裡進行最終調整：將 site-header 內的 card 背景、padding 和 box-shadow 全部移除 */
+
 .site-header .card {
-  background: none; /* 移除背景顏色 */
-  padding: 0; /* 移除內邊距 */
-  box-shadow: none; /* 移除陰影 */
+  padding: 0;
+  box-shadow: none;
   margin-bottom: 0;
 }
 .site-header .logo {
@@ -58,6 +56,17 @@ html,body{
   flex-direction: column;
   align-items: center;
   text-align: center;
+  /* 增加頂部內距，為 Logo 預留空間 */
+  padding-top: 100px; 
+}
+.logo {
+  /* 讓 Logo 圖片位於卡片頂部，並保持置中 */
+  margin-bottom: 20px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 300px; /* 調整 Logo 尺寸 */
 }
 .intro-title-container {
   display: flex;
