@@ -16,22 +16,19 @@ html,body{
   -webkit-font-smoothing:antialiased;
   background: linear-gradient(135deg, #fdf8f3, #ece0d1) !important;
 }
-/* 隱藏 header 區塊，因為它已被移除 */
 .site-header{
-  display: none;
+  display:flex;
+  justify-content:center;
+  padding:20px 12px;
+  /* 移除 header 與下方 intro 的間距 */
+  margin-bottom: 0;
 }
 .logo{
   max-width:720px;
   width:100%;
   height:auto;
 }
-.container{
-  max-width:720px;
-  margin:0 auto;
-  padding:16px;
-  /* 這裡設定容器為相對定位，以利 Logo 圖片的絕對定位 */
-  position: relative;
-}
+.container{max-width:720px;margin:0 auto;padding:16px}
 .card{
   background:var(--card);
   border-radius:16px;
@@ -39,15 +36,12 @@ html,body{
   margin-bottom:18px;
   box-shadow:0 8px 20px rgba(75,63,54,0.08);
 }
-/* 這裡是新的 Logo 圖片樣式，將其精確定位在 intro 卡片上方 */
-.logo {
-  max-width: 400px;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%); /* 向上移動一半高度，創造重疊效果 */
-  z-index: 10;
-  opacity: 0;
+/* 這裡進行最終修正：將 site-header 內的 card 背景、padding 和 box-shadow 全部移除 */
+.site-header .card {
+  background: none; /* 移除背景顏色 */
+  padding: 0; /* 移除內邊距 */
+  box-shadow: none; /* 移除陰影 */
+  margin-bottom: 0;
 }
 .site-header .logo {
   max-width: 400px;
@@ -56,18 +50,13 @@ html,body{
   margin: 0 auto;
   opacity: 0;
 }
-
-.hidden{
-  display:none;
-}
-
+/* 調整 intro 卡片的上邊距，讓它與 Logo 更靠近 */
 #intro {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* 增加頂部內距，為 Logo 預留空間 */
-  padding-top: 100px; 
+  margin-top: -20px; /* 使用負值 margin，讓它向上移動，與 Logo 視覺對齊 */
 }
 .intro-title-container {
   display: flex;
@@ -124,6 +113,7 @@ html,body{
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
+.hidden{display:none}
 .answers{display:flex;flex-direction:column;gap:12px;margin-top:12px}
 .answer-btn{
   background:#f6efe8;
@@ -163,6 +153,7 @@ html,body{
   50% { border-color: transparent; }
 }
 
+/* 動畫效果 */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -181,6 +172,7 @@ html,body{
   animation: fadeIn 1s forwards;
 }
 
+/* 全新結果頁面樣式 */
 #result {
   text-align: center;
 }
@@ -239,7 +231,8 @@ html,body{
   gap: 16px;
   margin-top: 24px;
 }
-.result-analysis{ display:none; }
+.result-analysis{ display:none; } /* 隱藏原本的分析區塊 */
+
 @media (max-width:600px){
   .container{padding:12px}
   .logo{max-width:320px}
