@@ -1,4 +1,3 @@
-
 /* Style: 文青療癒手繪風 (簡約版) */
 :root{
   --bg:#fffaf5;
@@ -35,9 +34,11 @@ html,body{
   margin-bottom:18px;
   box-shadow:0 8px 20px rgba(75,63,54,0.08);
 }
+/* 這裡進行最終修正：將 site-header 內的 card 背景、padding 和 box-shadow 全部移除 */
 .site-header .card {
-  padding: 0;
-  box-shadow: none;
+  background: none; /* 移除背景顏色 */
+  padding: 0; /* 移除內邊距 */
+  box-shadow: none; /* 移除陰影 */
   margin-bottom: 0;
 }
 .site-header .logo {
@@ -53,6 +54,8 @@ html,body{
   flex-direction: column;
   align-items: center;
   text-align: center;
+  /* 關鍵修正：使用負值 margin 讓卡片上移，與 Logo 視覺對齊 */
+  margin-top: -20px;
 }
 .intro-title-container {
   display: flex;
