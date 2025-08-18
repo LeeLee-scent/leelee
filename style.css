@@ -34,10 +34,11 @@ html,body{
   margin-bottom:18px;
   box-shadow:0 8px 20px rgba(75,63,54,0.08);
 }
-/* 這裡進行調整：移除 Logo 圖片的背景卡片樣式 */
+/* 這裡進行最終調整：將 site-header 內的 card 背景、padding 和 box-shadow 全部移除 */
 .site-header .card {
-  padding: 0;
-  box-shadow: none;
+  background: none; /* 移除背景顏色 */
+  padding: 0; /* 移除內邊距 */
+  box-shadow: none; /* 移除陰影 */
   margin-bottom: 0;
 }
 .site-header .logo {
