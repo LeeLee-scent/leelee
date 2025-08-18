@@ -16,13 +16,10 @@ html,body{
   -webkit-font-smoothing:antialiased;
   background: linear-gradient(135deg, #fdf8f3, #ece0d1) !important;
 }
-
 .site-header{
   display:flex;
   justify-content:center;
   padding:20px 12px;
-  /* 移除 header 卡片的下邊距 */
-  margin-bottom: 0;
 }
 .logo{
   max-width:720px;
@@ -37,8 +34,7 @@ html,body{
   margin-bottom:18px;
   box-shadow:0 8px 20px rgba(75,63,54,0.08);
 }
-
-/* 移除 header 卡片的樣式 */
+/* 這裡進行調整：移除 Logo 圖片的背景卡片樣式 */
 .site-header .card {
   padding: 0;
   box-shadow: none;
@@ -52,14 +48,15 @@ html,body{
   opacity: 0;
 }
 
-/* 這裡進行調整，讓 intro 卡片向上移動並重疊 */
+.hidden{
+  display:none;
+}
+
 #intro {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* 這裡使用負值 margin 讓卡片向上移動，創造重疊效果 */
-  margin-top: -50px;
 }
 .intro-title-container {
   display: flex;
@@ -116,7 +113,6 @@ html,body{
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
-.hidden{display:none}
 .answers{display:flex;flex-direction:column;gap:12px;margin-top:12px}
 .answer-btn{
   background:#f6efe8;
@@ -156,7 +152,6 @@ html,body{
   50% { border-color: transparent; }
 }
 
-/* 動畫效果 */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -175,7 +170,6 @@ html,body{
   animation: fadeIn 1s forwards;
 }
 
-/* 全新結果頁面樣式 */
 #result {
   text-align: center;
 }
@@ -234,8 +228,7 @@ html,body{
   gap: 16px;
   margin-top: 24px;
 }
-.result-analysis{ display:none; } /* 隱藏原本的分析區塊 */
-
+.result-analysis{ display:none; }
 @media (max-width:600px){
   .container{padding:12px}
   .logo{max-width:320px}
