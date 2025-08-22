@@ -55,7 +55,7 @@ html,body{
   align-items: center;
   text-align: center;
   /* 關鍵修正：使用負值 margin 讓卡片上移，與 Logo 視覺對齊 */
-  margin-top: -20px;
+  margin-top: -30px;
 }
 .intro-title-container {
   display: flex;
