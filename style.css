@@ -212,7 +212,7 @@ html,body{
   font-weight: 400;
   color: #fff;
   text-align: right;
-  line-height: 1.6;
+  line-height: 1.2;
 }
 .result-desc-text {
   background: var(--card);
@@ -220,9 +220,9 @@ html,body{
   padding: 20px;
   border: 1px solid #e9e2db;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.2;
   text-align: left;
-  margin-top: 16px;
+  margin-top: 12px;
 }
 .result-actions {
   display: flex;
