@@ -212,7 +212,7 @@ html,body{
   font-weight: 400;
   color: var(--text);
   text-align: right;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 .result-desc-text {
   background: var(--card);
