@@ -181,7 +181,7 @@ html,body{
 .result-subtitle {
   font-family: "Noto Serif TC", serif;
   font-size: 1.4em;
-  font-weight: 400;
+  font-weight: 700;
   color: var(--muted);
   margin: 0 0 8px 0;
 }
