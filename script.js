@@ -1,4 +1,4 @@
-// script.js - 香氣人格測驗 (最終優化版本)
+// script.js - 香氣人格測驗 (圖片載入優化版本)
 const questions = [
   // ... (問題內容不變)
   {
@@ -63,8 +63,7 @@ const questions = [
   }
 ];
 
-// script.js - 優化後的 results 物件內容
-
+// ... (結果內容與先前優化版本相同，此處省略)
 const results = {
   woody: {
     title: "木質沉穩型",
@@ -166,21 +165,33 @@ startBtn.addEventListener('click', () => {
 
 function renderQuestion() {
   const q = questions[current];
-  questionImage.src = q.image;
   progressText.textContent = `第 ${current + 1} 題 / ${total} 題`;
   answersDiv.innerHTML = '';
   currentSelection = null;
-  q.answers.forEach((a) => {
-    const btn = document.createElement('button');
-    btn.className = 'answer-btn';
-    btn.textContent = a.text;
-    btn.style.color = "#3b2f2f";
-    btn.dataset.type = a.type;
-    btn.addEventListener('click', () => selectAnswer(btn));
-    answersDiv.appendChild(btn);
-  });
-  nextBtn.style.display = 'none';
-  typeText(questionTitle, q.question);
+  
+  // 隱藏圖片，等待載入
+  questionImage.style.opacity = 0;
+  
+  // 載入新圖片
+  questionImage.src = q.image;
+  
+  questionImage.onload = () => {
+    // 圖片載入完成後，再顯示
+    questionImage.style.opacity = 1;
+    // 渲染其他元素
+    q.answers.forEach((a) => {
+      const btn = document.createElement('button');
+      btn.className = 'answer-btn';
+      btn.textContent = a.text;
+      btn.style.color = "#3b2f2f";
+      btn.dataset.type = a.type;
+      btn.addEventListener('click', () => selectAnswer(btn));
+      answersDiv.appendChild(btn);
+    });
+    nextBtn.style.display = 'none';
+    typeText(questionTitle, q.question);
+  };
+  
 }
 
 function selectAnswer(selectedBtn) {
@@ -225,15 +236,25 @@ function showResult() {
   }
   const r = results[highest];
 
-  // 更新結果頁面
-  resultTitle.textContent = r.title;
+  // 隱藏圖片，等待載入
+  resultImage.style.opacity = 0;
+  
+  // 載入新圖片
   resultImage.src = r.image;
-
-  // 顯示標籤
-  resultHashtags.innerHTML = r.hashtags.map(tag => `<div>${tag}</div>`).join('');
-
-  // 結合描述和分析
-  resultDesc.innerHTML = `<p>${r.description}</p><p>${r.analysis}</p>`;
+  
+  resultImage.onload = () => {
+    // 圖片載入完成後，再顯示
+    resultImage.style.opacity = 1;
+    
+    // 更新結果頁面
+    resultTitle.textContent = r.title;
+    
+    // 顯示標籤
+    resultHashtags.innerHTML = r.hashtags.map(tag => `<div>${tag}</div>`).join('');
+    
+    // 結合描述和分析
+    resultDesc.innerHTML = `<p>${r.description}</p><p>${r.analysis}</p>`;
+  };
 }
 
 restartBtn.addEventListener('click', () => {
