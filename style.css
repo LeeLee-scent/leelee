@@ -1,4 +1,4 @@
-/* Style: 文青療癒手繪風 (最終優化版本) */
+/* Style: 文青療癒手繪風 (最終版本) */
 :root {
   --bg: #fffaf5;
   --card: #fff;
@@ -9,7 +9,7 @@
 }
 
 * {
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 html,
@@ -112,7 +112,7 @@ body {
 .lead {
   color: var(--cream);
   /* 縮小段落間距 */
-  margin-bottom: 2px;
+  margin: 0 0 16px 0;
   text-align: center !important;
   white-space: pre-wrap !important;
   font-size: 1.2em;
@@ -140,7 +140,7 @@ body {
 
 .btn.primary {
   background: var(--accent);
-  font-weight: 600
+  font-weight: 600;
 }
 
 .btn.primary:hover {
@@ -150,7 +150,7 @@ body {
 }
 
 .hidden {
-  display: none
+  display: none;
 }
 
 .answers {
@@ -167,7 +167,7 @@ body {
   border: none;
   text-align: left;
   cursor: pointer;
-  transition: transform .12s ease, box-shadow .12s;
+  transition: transform 0.12s ease, box-shadow 0.12s;
 }
 
 .answer-btn:hover {
@@ -194,7 +194,7 @@ body {
 .progress {
   font-size: 14px;
   color: var(--muted);
-  margin-bottom: 8px
+  margin-bottom: 8px;
 }
 
 .actions {
@@ -207,7 +207,7 @@ body {
 .site-footer {
   text-align: center;
   padding: 18px 0;
-  color: var(--muted)
+  color: var(--muted);
 }
 
 @keyframes fadeInUp {
@@ -290,14 +290,14 @@ body {
   margin-top: 12px;
 }
 
+/* 確保段落間距緊湊 */
 .result-desc-text p {
-  /* 縮小段落間距 */
   margin: 0;
   font-size: 0.95em;
+  line-height: 1.4;
 }
 
 .result-desc-text p+p {
-  /* 進一步縮小段落間距 */
   margin-top: 0.6em;
 }
 
@@ -308,19 +308,19 @@ body {
   margin-top: 24px;
 }
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
   .container {
-    padding: 12px
+    padding: 12px;
   }
   .logo {
-    max-width: 320px
+    max-width: 320px;
   }
   .card {
-    padding: 16px
+    padding: 16px;
   }
   .answer-btn {
     font-size: 15px;
-    padding: 10px
+    padding: 10px;
   }
   .result-hashtags {
     padding: 8px;
