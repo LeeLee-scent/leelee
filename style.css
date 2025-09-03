@@ -1,14 +1,13 @@
-/* Style: 文青療癒手繪風 (調整版本) */
+/* Style: 文青療癒手繪風 (最終優化版本) */
 :root {
   --bg: #fffaf5;
   --card: #fff;
   --accent: #e6d3c4;
   --text: #4b3f36;
   --muted: #7a6a60;
-  --cream: #3b2f2f; /* 米白色 */
+  --cream: #3b2f2f;
 }
 
-/* 確保所有元素都使用 box-sizing: border-box */
 * {
   box-sizing: border-box
 }
@@ -17,7 +16,6 @@ html,
 body {
   height: 100%;
   margin: 0;
-  /* 統一使用 Noto Serif TC，讓打字效果和最終顯示一致 */
   font-family: "Noto Serif TC", serif;
   color: var(--text);
   -webkit-font-smoothing: antialiased;
@@ -27,9 +25,11 @@ body {
 /* 統一標題字型 */
 .intro-title-left,
 .intro-title-right,
+#questionTitle,
 .result-subtitle,
 .result-title {
   font-family: "ZCOOL KuaiLe", "Noto Serif TC", sans-serif;
+  white-space: pre-wrap;
 }
 
 .site-header {
@@ -90,7 +90,6 @@ body {
 }
 
 .intro-title-left {
-  font-family: "ZCOOL KuaiLe", "Noto Serif TC", sans-serif;
   font-weight: 700;
   font-size: 2em;
   padding-right: 16px;
@@ -100,7 +99,6 @@ body {
 }
 
 .intro-title-right {
-  font-family: "Noto Serif TC", serif;
   font-weight: 400;
   font-size: 2em;
   line-height: 1;
@@ -207,27 +205,11 @@ body {
   color: var(--muted)
 }
 
-.typewriter {
-  overflow: hidden;
-  border-right: .15em solid var(--cream);
-  white-space: pre-wrap;
-  margin: 0 auto;
-  animation: caret 1s steps(1) infinite;
-}
-
-@keyframes caret {
-  50% {
-    border-color: transparent;
-  }
-}
-
-/* 動畫效果 */
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -238,7 +220,6 @@ body {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -248,47 +229,15 @@ body {
   animation: fadeIn 1s forwards;
 }
 
-
-/* 全新結果頁面樣式 */
+/* 全新結果頁面樣式 - 最終優化 */
 #result {
   text-align: center;
 }
 
-/* 新增：結果頁面卡片背景裝飾 */
-#result.card {
-  background-image: url('images/bg-dots.png'); /* 假設有這張背景圖 */
-  background-repeat: no-repeat;
-  background-size: 100px;
-  background-position: top 20px right 20px;
-  position: relative;
-  z-index: 1;
-}
-
-.result-header {
-  margin-bottom: 24px;
-}
-
-.result-subtitle {
-  font-family: "Noto Serif TC", serif;
-  font-size: 1.4em;
-  font-weight: 700;
-  color: var(--muted);
-  margin: 0 0 8px 0;
-}
-
-.result-title {
-  font-family: "Noto Serif TC", serif;
-  font-weight: 700;
-  font-size: 2.5em;
-  color: var(--text);
-  margin: 0;
-}
-
+/* 調整圖片容器，確保內容不重疊 */
 .result-image-container {
-  /* 移除原本的 relative 定位，讓標籤不會重疊 */
-  position: static;
   max-width: 420px;
-  margin: 0 auto 24px auto;
+  margin: 0 auto;
 }
 
 .result-main-image {
@@ -296,25 +245,27 @@ body {
   height: auto;
   border-radius: 14px;
   display: block;
-  box-shadow: 0 8px 20px rgba(75, 63, 54, 0.12); /* 增加圖片陰影 */
+  box-shadow: 0 8px 20px rgba(75, 63, 54, 0.12);
 }
 
-/* 調整標籤樣式與定位，使其位於圖片下方，不會重疊 */
+/* 標籤獨立為一個區塊，不會與圖片重疊 */
 .result-hashtags {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
   margin-top: 24px;
-  font-family: "ZCOOL KuaiLe", "Noto Serif TC", sans-serif;
-  font-size: 1.1em;
   font-weight: 400;
-  color: var(--text);
-  text-align: center;
-  line-height: 1.5;
   background: #f6efe8;
   padding: 12px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-family: "Noto Serif TC", serif;
+  font-size: 1.1em;
+}
+
+.result-hashtags div {
+  white-space: nowrap;
 }
 
 .result-desc-text {
@@ -323,9 +274,17 @@ body {
   padding: 20px;
   border: 1px solid #e9e2db;
   color: var(--muted);
-  line-height: 1.8; /* 增加行距，更易閱讀 */
+  line-height: 1.8;
   text-align: left;
   margin-top: 12px;
+}
+
+.result-desc-text p {
+  margin: 0;
+}
+
+.result-desc-text p + p {
+  margin-top: 1em;
 }
 
 .result-actions {
@@ -335,26 +294,24 @@ body {
   margin-top: 24px;
 }
 
-.result-analysis {
-  display: none;
-}
-
 @media (max-width:600px) {
   .container {
     padding: 12px
   }
-
   .logo {
     max-width: 320px
   }
-
   .card {
     padding: 16px
   }
-
   .answer-btn {
     font-size: 15px;
     padding: 10px
+  }
+  .result-hashtags {
+    padding: 8px;
+    gap: 8px;
+    font-size: 1em;
   }
 }
 
