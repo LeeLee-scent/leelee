@@ -42,6 +42,9 @@ body {
   max-width: 720px;
   width: 100%;
   height: auto;
+  max-width: 400px;
+  display: block;
+  margin: 0 auto;
 }
 
 .container {
@@ -65,14 +68,6 @@ body {
   margin-bottom: 0;
 }
 
-.site-header .logo {
-  max-width: 400px;
-  width: 100%;
-  display: block;
-  margin: 0 auto;
-  opacity: 0;
-}
-
 #intro {
   display: flex;
   flex-direction: column;
@@ -87,7 +82,6 @@ body {
   align-items: center;
   justify-content: center;
   margin-bottom: 18px;
-  opacity: 0;
 }
 
 .intro-title-left {
@@ -106,7 +100,7 @@ body {
 }
 
 .intro-text-wrapper {
-  opacity: 0;
+  /* 移除動畫相關屬性 */
 }
 
 .lead {
@@ -114,7 +108,8 @@ body {
   /* 縮小段落間距 */
   margin: 0 0 16px 0;
   text-align: center !important;
-  white-space: pre-wrap !important;
+  /* 確保沒有多餘的空白 */
+  white-space: pre-wrap;
   font-size: 1.2em;
   /* 縮小行距 */
   line-height: 1.1;
@@ -124,7 +119,7 @@ body {
 #intro #startBtn {
   display: block;
   margin: 0 auto;
-  opacity: 0;
+  /* 移除動畫相關屬性 */
 }
 
 .btn {
@@ -187,8 +182,6 @@ body {
   border-radius: 10px;
   margin-bottom: 12px;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
 }
 
 .progress {
@@ -208,30 +201,6 @@ body {
   text-align: center;
   padding: 18px 0;
   color: var(--muted);
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 1s forwards;
 }
 
 /* 結果頁面樣式 */
@@ -254,9 +223,6 @@ body {
   border-radius: 14px;
   display: block;
   box-shadow: 0 8px 20px rgba(75, 63, 54, 0.12);
-  /* 圖片直接顯示，不延遲 */
-  opacity: 1;
-  transition: none;
 }
 
 .result-hashtags {
