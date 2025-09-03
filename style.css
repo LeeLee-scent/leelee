@@ -1,4 +1,4 @@
-/* Style: 文青療癒手繪風 (文字間距優化版本) */
+/* Style: 文青療癒手繪風 (最終優化版本) */
 :root {
   --bg: #fffaf5;
   --card: #fff;
@@ -78,7 +78,8 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: -40px;
+  /* 縮小 LOGO 與下方文字間距 */
+  margin-top: -60px;
 }
 
 .intro-title-container {
@@ -110,7 +111,7 @@ body {
 
 .lead {
   color: var(--cream);
-  /* 進一步縮小段落間距 */
+  /* 縮小段落間距 */
   margin-bottom: 2px;
   text-align: center !important;
   white-space: pre-wrap !important;
@@ -253,8 +254,9 @@ body {
   border-radius: 14px;
   display: block;
   box-shadow: 0 8px 20px rgba(75, 63, 54, 0.12);
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  /* 圖片直接顯示，不延遲 */
+  opacity: 1;
+  transition: none;
 }
 
 .result-hashtags {
