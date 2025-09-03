@@ -1,82 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>香氣人格測驗</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=ZCOOL+KuaiLe&display=swap"
-        rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LeeLee Scent Studio — 測一測你的風格香</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div class="site-header">
-        <div class="card">
-            <img src="images/logo.png" alt="Logo" class="logo">
-        </div>
-    </div>
-    <div class="container">
-        <div id="intro" class="card">
-            <div class="intro-title-container">
-                <span class="intro-title-left">測一測</span>
-                <span class="intro-title-right">屬於你的風格香</span>
-            </div>
-            <div class="intro-text-wrapper">
-                <p class="lead">
-                    好聞的香氛是感官的享受<br>
-                    它以氣味、情感與記憶調和我們的情緒與心境<br>
-                    增添個人的風格，提振與轉換心情<br>
-                    有的人喜歡隨著每天不同的心情變換香氛<br>
-                    有的人則會鍾情某款香調鮮少變換<br>
-                    想找到專屬你此時的風格香
-                </p>
-            </div>
-            <button id="startBtn" class="btn primary">開始測驗</button>
-        </div>
+  <header class="site-header">
+    <div class="card">
+      <img src="images/logo.png" alt="LeeLee Scent Studio" class="logo"/>
+    </div>
+  </header>
 
-        <div id="quiz" class="hidden">
-            <div class="card">
-                <div class="progress">
-                    <span id="progressText"></span>
-                </div>
-                <img id="questionImage" class="qimage" src="" alt="問題圖片">
-                <h2 id="questionTitle"></h2>
-                <div id="answers" class="answers"></div>
-                <div class="actions">
-                    <button id="nextBtn" class="btn primary">下一題</button>
-                </div>
-            </div>
-        </div>
+  <main class="container" id="app">
+    <section id="intro" class="card">
+      <div class="intro-title-container">
+        <div class="intro-title-left"></div>
+        <div class="intro-title-right"></div>
+      </div>
+      <div class="intro-text-wrapper">
+        <p class="lead">好聞的香氛是感官的享受</p>
+        <p class="lead">它以氣味、情感與記憶調和我們的情緒與心境</p>
+        <p class="lead">增添個人的風格，提振與轉換心情</p>
+        <p class="lead">有的人喜歡隨著每天不同的心情變換香氛</p>
+        <p class="lead">有的人則會鍾情某款香調鮮少變換</p>
+        <p class="lead">想找到專屬你此時的風格香</p>
+      </div>
+      <button id="startBtn" class="btn primary">開始測驗</button>
+    </section>
 
-        <div id="result" class="hidden">
-            <div class="card result-header">
-                <h3 class="result-subtitle">你的風格香是</h3>
-                <h2 id="resultTitle" class="result-title"></h2>
-            </div>
-            <div class="card">
-                <div class="result-image-container">
-                    <img id="resultImage" class="result-main-image" src="" alt="結果圖片">
-                </div>
-            </div>
-            <div class="card">
-                <div id="resultHashtags" class="result-hashtags"></div>
-            </div>
-            <div class="card">
-                <div id="resultDesc" class="result-desc-text"></div>
-            </div>
-            <div class="result-actions">
-                <button id="restartBtn" class="btn">重新測驗</button>
-                <button id="shareBtn" class="btn primary">分享結果</button>
-            </div>
-        </div>
-    </div>
-    <div class="site-footer">
-        <p>Copyright © 2024</p>
-    </div>
-    <script src="script.js"></script>
+    <section id="quiz" class="card hidden">
+      <div class="progress"><span id="progressText">第 1 題 / 6 題</span></div>
+      <img id="questionImage" src="images/q1.jpg" alt="" class="qimage"/>
+      <h2 id="questionTitle"></h2>
+      <div id="answers" class="answers"></div>
+      <div class="nav">
+        <button id="nextBtn" class="btn" style="display:none;">下一題</button>
+    </div>
+    </section>
+
+        <section id="result" class="card hidden">
+      <div class="result-header">
+        <h2 class="result-subtitle">你的風格香是</h2>
+        <h1 id="resultTitle" class="result-title"></h1>
+      </div>
+      <div class="result-image-container">
+        <img id="resultImage" src="" alt="" class="result-main-image"/>
+        <div id="resultHashtags" class="result-hashtags"></div>
+      </div>
+      <div id="resultDesc" class="result-desc-text"></div>
+      <div class="result-actions">
+        <button id="restartBtn" class="btn primary">重新測驗</button>
+        <button id="shareBtn" class="btn">分享結果</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© LEELEE Scent Studio</small>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
