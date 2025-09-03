@@ -1,4 +1,4 @@
-// script.js - 香氣人格測驗 (最終修復版本)
+// script.js - 香氣人格測驗 (文字合併版本)
 const questions = [
   // ... (問題內容不變)
   {
@@ -118,7 +118,6 @@ const resultDesc = document.getElementById('resultDesc');
 const resultHashtags = document.getElementById('resultHashtags');
 const restartBtn = document.getElementById('restartBtn');
 const shareBtn = document.getElementById('shareBtn');
-// 修正錯誤：將目標元素指向正確的 class
 const introTextElement = document.querySelector('.lead');
 
 const logo = document.querySelector('.site-header .logo');
@@ -149,7 +148,6 @@ function animateIntroPage() {
     introTitleContainer.style.opacity = 1;
     typeText(introTitleLeft, '測一測', 100, () => {
       typeText(introTitleRight, '屬於你的風格香', 100, () => {
-        // 在這裡將文字注入到正確的元素中
         introTextElement.textContent = introText;
         introTextWrapper.style.animation = 'fadeIn 1s forwards';
         startBtn.style.animation = 'fadeIn 1s forwards';
@@ -239,7 +237,8 @@ function showResult() {
   
   resultHashtags.innerHTML = r.hashtags.map(tag => `<div>${tag}</div>`).join('');
   
-  resultDesc.innerHTML = `<p>${r.description}</p><p>${r.analysis}</p>`;
+  // 修正錯誤：將兩段文字合併為一個單獨的段落
+  resultDesc.innerHTML = `<p>${r.description}<br><br>${r.analysis}</p>`;
 }
 
 restartBtn.addEventListener('click', () => {
