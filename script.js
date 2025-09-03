@@ -1,5 +1,6 @@
-// script.js - 香氣人格測驗 (最終校正版本)
+// script.js - 香氣人格測驗 (最終修復版本)
 const questions = [
+  // ... (問題內容不變)
   {
     question: "Q1. 清晨起床的你，最需要什麼來開啟新的一天？",
     image: "images/q1.jpg",
@@ -92,6 +93,7 @@ const results = {
     analysis: "你的選擇反映出你獨特的審美觀和對純粹的追求。你重視個人空間，從獨處中汲取靈感與力量。麝香，結合**琥珀**、**廣藿香**等後調，能完美烘托你乾淨俐落、高雅內斂的特質。這些香氣低調而持久，像你的個性一樣，雖然不喧鬧，卻能留下深刻且令人難忘的印記。它是一種專屬於你的「氣場」，無須張揚，卻足以震撼人心。"
   }
 };
+// 首頁文字內容
 const introText = "好聞的香氛是感官的享受\n\n它以氣味、情感與記憶調和我們的情緒與心境\n\n增添個人的風格，提振與轉換心情\n\n有的人喜歡隨著每天不同的心情變換香氛\n\n有的人則會鍾情某款香調鮮少變換\n\n想找到專屬你此時的風格香";
 
 // State
@@ -116,7 +118,8 @@ const resultDesc = document.getElementById('resultDesc');
 const resultHashtags = document.getElementById('resultHashtags');
 const restartBtn = document.getElementById('restartBtn');
 const shareBtn = document.getElementById('shareBtn');
-const introTextElement = document.getElementById('introText');
+// 修正錯誤：將目標元素指向正確的 class
+const introTextElement = document.querySelector('.lead');
 
 const logo = document.querySelector('.site-header .logo');
 const introTitleContainer = document.querySelector('.intro-title-container');
@@ -146,6 +149,7 @@ function animateIntroPage() {
     introTitleContainer.style.opacity = 1;
     typeText(introTitleLeft, '測一測', 100, () => {
       typeText(introTitleRight, '屬於你的風格香', 100, () => {
+        // 在這裡將文字注入到正確的元素中
         introTextElement.textContent = introText;
         introTextWrapper.style.animation = 'fadeIn 1s forwards';
         startBtn.style.animation = 'fadeIn 1s forwards';
