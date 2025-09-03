@@ -1,6 +1,5 @@
-// script.js - 香氣人格測驗 (最終優化版本)
+// script.js - 香氣人格測驗 (最終校正版本)
 const questions = [
-  // ... (問題內容不變)
   {
     question: "Q1. 清晨起床的你，最需要什麼來開啟新的一天？",
     image: "images/q1.jpg",
@@ -63,7 +62,6 @@ const questions = [
   }
 ];
 
-// ... (結果內容不變)
 const results = {
   woody: {
     title: "木質沉穩型",
@@ -94,6 +92,8 @@ const results = {
     analysis: "你的選擇反映出你獨特的審美觀和對純粹的追求。你重視個人空間，從獨處中汲取靈感與力量。麝香，結合**琥珀**、**廣藿香**等後調，能完美烘托你乾淨俐落、高雅內斂的特質。這些香氣低調而持久，像你的個性一樣，雖然不喧鬧，卻能留下深刻且令人難忘的印記。它是一種專屬於你的「氣場」，無須張揚，卻足以震撼人心。"
   }
 };
+const introText = "好聞的香氛是感官的享受\n\n它以氣味、情感與記憶調和我們的情緒與心境\n\n增添個人的風格，提振與轉換心情\n\n有的人喜歡隨著每天不同的心情變換香氛\n\n有的人則會鍾情某款香調鮮少變換\n\n想找到專屬你此時的風格香";
+
 // State
 let current = 0;
 let scores = { woody: 0, citrus: 0, floral: 0, musk: 0 };
@@ -116,6 +116,7 @@ const resultDesc = document.getElementById('resultDesc');
 const resultHashtags = document.getElementById('resultHashtags');
 const restartBtn = document.getElementById('restartBtn');
 const shareBtn = document.getElementById('shareBtn');
+const introTextElement = document.getElementById('introText');
 
 const logo = document.querySelector('.site-header .logo');
 const introTitleContainer = document.querySelector('.intro-title-container');
@@ -145,7 +146,7 @@ function animateIntroPage() {
     introTitleContainer.style.opacity = 1;
     typeText(introTitleLeft, '測一測', 100, () => {
       typeText(introTitleRight, '屬於你的風格香', 100, () => {
-
+        introTextElement.textContent = introText;
         introTextWrapper.style.animation = 'fadeIn 1s forwards';
         startBtn.style.animation = 'fadeIn 1s forwards';
       });
@@ -169,11 +170,9 @@ function renderQuestion() {
   answersDiv.innerHTML = '';
   currentSelection = null;
 
-  // 直接顯示圖片，不延遲
   questionImage.src = q.image;
   questionImage.style.opacity = 1;
   
-  // 渲染其他元素
   typeText(questionTitle, q.question);
   q.answers.forEach((a) => {
     const btn = document.createElement('button');
@@ -229,17 +228,13 @@ function showResult() {
   }
   const r = results[highest];
 
-  // 直接顯示圖片，不延遲
   resultImage.src = r.image;
   resultImage.style.opacity = 1;
   
-  // 更新結果頁面
   resultTitle.textContent = r.title;
   
-  // 顯示標籤
   resultHashtags.innerHTML = r.hashtags.map(tag => `<div>${tag}</div>`).join('');
   
-  // 結合描述和分析
   resultDesc.innerHTML = `<p>${r.description}</p><p>${r.analysis}</p>`;
 }
 
