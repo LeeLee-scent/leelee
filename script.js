@@ -1,4 +1,4 @@
-// script.js - 香氣人格測驗 (最終版本)
+// script.js - 香氣人格測驗 (最終優化版本)
 const questions = [
   // ... (問題內容不變)
   {
@@ -63,7 +63,7 @@ const questions = [
   }
 ];
 
-// ... (結果內容與先前優化版本相同，此處省略)
+// ... (結果內容不變)
 const results = {
   woody: {
     title: "木質沉穩型",
@@ -165,12 +165,15 @@ startBtn.addEventListener('click', () => {
 
 function renderQuestion() {
   const q = questions[current];
-  // 優先顯示問題與答案，圖片在背景載入
   progressText.textContent = `第 ${current + 1} 題 / ${total} 題`;
   answersDiv.innerHTML = '';
   currentSelection = null;
 
-  // 先渲染文字內容
+  // 直接顯示圖片，不延遲
+  questionImage.src = q.image;
+  questionImage.style.opacity = 1;
+  
+  // 渲染其他元素
   typeText(questionTitle, q.question);
   q.answers.forEach((a) => {
     const btn = document.createElement('button');
@@ -182,15 +185,6 @@ function renderQuestion() {
     answersDiv.appendChild(btn);
   });
   nextBtn.style.display = 'none';
-  
-  // 圖片載入邏輯：先隱藏圖片，載入新圖片，完成後淡入顯示
-  questionImage.style.opacity = 0;
-  const tempImg = new Image();
-  tempImg.src = q.image;
-  tempImg.onload = () => {
-    questionImage.src = q.image;
-    questionImage.style.opacity = 1;
-  };
 }
 
 function selectAnswer(selectedBtn) {
@@ -235,19 +229,18 @@ function showResult() {
   }
   const r = results[highest];
 
-  // 優先顯示文字內容，圖片在背景載入
-  resultTitle.textContent = r.title;
-  resultHashtags.innerHTML = r.hashtags.map(tag => `<div>${tag}</div>`).join('');
-  resultDesc.innerHTML = `<p>${r.description}</p><p>${r.analysis}</p>`;
+  // 直接顯示圖片，不延遲
+  resultImage.src = r.image;
+  resultImage.style.opacity = 1;
   
-  // 圖片載入邏輯：先隱藏圖片，載入新圖片，完成後淡入顯示
-  resultImage.style.opacity = 0;
-  const tempImg = new Image();
-  tempImg.src = r.image;
-  tempImg.onload = () => {
-    resultImage.src = r.image;
-    resultImage.style.opacity = 1;
-  };
+  // 更新結果頁面
+  resultTitle.textContent = r.title;
+  
+  // 顯示標籤
+  resultHashtags.innerHTML = r.hashtags.map(tag => `<div>${tag}</div>`).join('');
+  
+  // 結合描述和分析
+  resultDesc.innerHTML = `<p>${r.description}</p><p>${r.analysis}</p>`;
 }
 
 restartBtn.addEventListener('click', () => {
