@@ -1,5 +1,6 @@
-// script.js - 香氣人格測驗 (最終版本)
+// script.js - 香氣人格測驗 (最終優化版本)
 const questions = [
+  // ... (問題內容不變)
   {
     question: "Q1. 清晨起床的你，最需要什麼來開啟新的一天？",
     image: "images/q1.jpg",
@@ -62,6 +63,7 @@ const questions = [
   }
 ];
 
+// ... (結果內容不變)
 const results = {
   woody: {
     title: "木質沉穩型",
@@ -92,7 +94,6 @@ const results = {
     analysis: "你的選擇反映出你獨特的審美觀和對純粹的追求。你重視個人空間，從獨處中汲取靈感與力量。麝香，結合**琥珀**、**廣藿香**等後調，能完美烘托你乾淨俐落、高雅內斂的特質。這些香氣低調而持久，像你的個性一樣，雖然不喧鬧，卻能留下深刻且令人難忘的印記。它是一種專屬於你的「氣場」，無須張揚，卻足以震撼人心。"
   }
 };
-
 // State
 let current = 0;
 let scores = { woody: 0, citrus: 0, floral: 0, musk: 0 };
@@ -116,11 +117,43 @@ const resultHashtags = document.getElementById('resultHashtags');
 const restartBtn = document.getElementById('restartBtn');
 const shareBtn = document.getElementById('shareBtn');
 
-// 移除所有與首頁動畫相關的程式碼
-document.addEventListener('DOMContentLoaded', () => {
-    // 確保頁面加載後直接顯示 intro
-    intro.style.display = 'block';
-});
+const logo = document.querySelector('.site-header .logo');
+const introTitleContainer = document.querySelector('.intro-title-container');
+const introTitleLeft = document.querySelector('.intro-title-left');
+const introTitleRight = document.querySelector('.intro-title-right');
+const introTextWrapper = document.querySelector('.intro-text-wrapper');
+
+function typeText(element, text, speed = 50, callback) {
+  element.textContent = '';
+  let i = 0;
+  function typing() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(typing, speed);
+    } else if (callback) {
+      callback();
+    }
+  }
+  typing();
+}
+
+function animateIntroPage() {
+  logo.style.animation = 'fadeInUp 1s forwards';
+
+  logo.addEventListener('animationend', () => {
+    introTitleContainer.style.opacity = 1;
+    typeText(introTitleLeft, '測一測', 100, () => {
+      typeText(introTitleRight, '屬於你的風格香', 100, () => {
+
+        introTextWrapper.style.animation = 'fadeIn 1s forwards';
+        startBtn.style.animation = 'fadeIn 1s forwards';
+      });
+    });
+  }, { once: true });
+}
+
+document.addEventListener('DOMContentLoaded', animateIntroPage);
 
 startBtn.addEventListener('click', () => {
   intro.classList.add('hidden');
@@ -136,9 +169,12 @@ function renderQuestion() {
   answersDiv.innerHTML = '';
   currentSelection = null;
 
+  // 直接顯示圖片，不延遲
   questionImage.src = q.image;
+  questionImage.style.opacity = 1;
   
-  questionTitle.textContent = q.question;
+  // 渲染其他元素
+  typeText(questionTitle, q.question);
   q.answers.forEach((a) => {
     const btn = document.createElement('button');
     btn.className = 'answer-btn';
@@ -193,12 +229,17 @@ function showResult() {
   }
   const r = results[highest];
 
+  // 直接顯示圖片，不延遲
   resultImage.src = r.image;
+  resultImage.style.opacity = 1;
   
+  // 更新結果頁面
   resultTitle.textContent = r.title;
   
+  // 顯示標籤
   resultHashtags.innerHTML = r.hashtags.map(tag => `<div>${tag}</div>`).join('');
   
+  // 結合描述和分析
   resultDesc.innerHTML = `<p>${r.description}</p><p>${r.analysis}</p>`;
 }
 
