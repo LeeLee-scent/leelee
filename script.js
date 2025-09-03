@@ -92,8 +92,6 @@ const results = {
     analysis: "你的選擇反映出你獨特的審美觀和對純粹的追求。你重視個人空間，從獨處中汲取靈感與力量。麝香，結合**琥珀**、**廣藿香**等後調，能完美烘托你乾淨俐落、高雅內斂的特質。這些香氣低調而持久，像你的個性一樣，雖然不喧鬧，卻能留下深刻且令人難忘的印記。它是一種專屬於你的「氣場」，無須張揚，卻足以震撼人心。"
   }
 };
-// 首頁文字內容
-const introText = "好聞的香氛是感官的享受\n\n它以氣味、情感與記憶調和我們的情緒與心境\n\n增添個人的風格，提振與轉換心情\n\n有的人喜歡隨著每天不同的心情變換香氛\n\n有的人則會鍾情某款香調鮮少變換\n\n想找到專屬你此時的風格香";
 
 // State
 let current = 0;
@@ -117,46 +115,12 @@ const resultDesc = document.getElementById('resultDesc');
 const resultHashtags = document.getElementById('resultHashtags');
 const restartBtn = document.getElementById('restartBtn');
 const shareBtn = document.getElementById('shareBtn');
-const introTextElement = document.querySelector('.lead');
 
-const logo = document.querySelector('.site-header .logo');
-const introTitleContainer = document.querySelector('.intro-title-container');
-const introTitleLeft = document.querySelector('.intro-title-left');
-const introTitleRight = document.querySelector('.intro-title-right');
-const introTextWrapper = document.querySelector('.intro-text-wrapper');
-
-function typeText(element, text, speed = 50, callback) {
-  element.textContent = '';
-  let i = 0;
-  function typing() {
-    if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
-      setTimeout(typing, speed);
-    } else if (callback) {
-      callback();
-    }
-  }
-  typing();
-}
-
-function animateIntroPage() {
-  logo.style.animation = 'fadeInUp 1s forwards';
-
-  logo.addEventListener('animationend', () => {
-    introTitleContainer.style.opacity = 1;
-    typeText(introTitleLeft, '測一測', 100, () => {
-      typeText(introTitleRight, '屬於你的風格香', 100, () => {
-        // 在這裡將文字注入到正確的元素中
-        introTextElement.textContent = introText;
-        introTextWrapper.style.animation = 'fadeIn 1s forwards';
-        startBtn.style.animation = 'fadeIn 1s forwards';
-      });
-    });
-  }, { once: true });
-}
-
-document.addEventListener('DOMContentLoaded', animateIntroPage);
+// 移除所有與首頁動畫相關的程式碼
+document.addEventListener('DOMContentLoaded', () => {
+    // 確保頁面加載後直接顯示 intro
+    intro.style.display = 'block';
+});
 
 startBtn.addEventListener('click', () => {
   intro.classList.add('hidden');
@@ -173,9 +137,8 @@ function renderQuestion() {
   currentSelection = null;
 
   questionImage.src = q.image;
-  questionImage.style.opacity = 1;
   
-  typeText(questionTitle, q.question);
+  questionTitle.textContent = q.question;
   q.answers.forEach((a) => {
     const btn = document.createElement('button');
     btn.className = 'answer-btn';
@@ -231,14 +194,12 @@ function showResult() {
   const r = results[highest];
 
   resultImage.src = r.image;
-  resultImage.style.opacity = 1;
   
   resultTitle.textContent = r.title;
   
   resultHashtags.innerHTML = r.hashtags.map(tag => `<div>${tag}</div>`).join('');
   
-  // 修正：將兩段文字合併為一個單獨的段落
-  resultDesc.innerHTML = `<p>${r.description}<br><br>${r.analysis}</p>`;
+  resultDesc.innerHTML = `<p>${r.description}</p><p>${r.analysis}</p>`;
 }
 
 restartBtn.addEventListener('click', () => {
