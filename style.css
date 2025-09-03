@@ -1,4 +1,4 @@
-/* Style: 文青療癒手繪風 (最終版本) */
+/* Style: 文青療癒手繪風 (最終優化版本) */
 :root {
   --bg: #fffaf5;
   --card: #fff;
@@ -9,7 +9,7 @@
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing: border-box
 }
 
 html,
@@ -42,9 +42,6 @@ body {
   max-width: 720px;
   width: 100%;
   height: auto;
-  max-width: 400px;
-  display: block;
-  margin: 0 auto;
 }
 
 .container {
@@ -68,6 +65,14 @@ body {
   margin-bottom: 0;
 }
 
+.site-header .logo {
+  max-width: 400px;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  opacity: 0;
+}
+
 #intro {
   display: flex;
   flex-direction: column;
@@ -82,6 +87,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-bottom: 18px;
+  opacity: 0;
 }
 
 .intro-title-left {
@@ -100,16 +106,15 @@ body {
 }
 
 .intro-text-wrapper {
-  /* 移除動畫相關屬性 */
+  opacity: 0;
 }
 
 .lead {
   color: var(--cream);
   /* 縮小段落間距 */
-  margin: 0 0 16px 0;
+  margin-bottom: 2px;
   text-align: center !important;
-  /* 確保沒有多餘的空白 */
-  white-space: pre-wrap;
+  white-space: pre-wrap !important;
   font-size: 1.2em;
   /* 縮小行距 */
   line-height: 1.1;
@@ -119,7 +124,7 @@ body {
 #intro #startBtn {
   display: block;
   margin: 0 auto;
-  /* 移除動畫相關屬性 */
+  opacity: 0;
 }
 
 .btn {
@@ -135,7 +140,7 @@ body {
 
 .btn.primary {
   background: var(--accent);
-  font-weight: 600;
+  font-weight: 600
 }
 
 .btn.primary:hover {
@@ -145,7 +150,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none
 }
 
 .answers {
@@ -162,7 +167,7 @@ body {
   border: none;
   text-align: left;
   cursor: pointer;
-  transition: transform 0.12s ease, box-shadow 0.12s;
+  transition: transform .12s ease, box-shadow .12s;
 }
 
 .answer-btn:hover {
@@ -182,12 +187,14 @@ body {
   border-radius: 10px;
   margin-bottom: 12px;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .progress {
   font-size: 14px;
   color: var(--muted);
-  margin-bottom: 8px;
+  margin-bottom: 8px
 }
 
 .actions {
@@ -200,7 +207,31 @@ body {
 .site-footer {
   text-align: center;
   padding: 18px 0;
-  color: var(--muted);
+  color: var(--muted)
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s forwards;
 }
 
 /* 結果頁面樣式 */
@@ -223,6 +254,9 @@ body {
   border-radius: 14px;
   display: block;
   box-shadow: 0 8px 20px rgba(75, 63, 54, 0.12);
+  /* 圖片直接顯示，不延遲 */
+  opacity: 1;
+  transition: none;
 }
 
 .result-hashtags {
@@ -256,14 +290,14 @@ body {
   margin-top: 12px;
 }
 
-/* 確保段落間距緊湊 */
 .result-desc-text p {
+  /* 縮小段落間距 */
   margin: 0;
   font-size: 0.95em;
-  line-height: 1.4;
 }
 
 .result-desc-text p+p {
+  /* 進一步縮小段落間距 */
   margin-top: 0.6em;
 }
 
@@ -274,19 +308,19 @@ body {
   margin-top: 24px;
 }
 
-@media (max-width: 600px) {
+@media (max-width:600px) {
   .container {
-    padding: 12px;
+    padding: 12px
   }
   .logo {
-    max-width: 320px;
+    max-width: 320px
   }
   .card {
-    padding: 16px;
+    padding: 16px
   }
   .answer-btn {
     font-size: 15px;
-    padding: 10px;
+    padding: 10px
   }
   .result-hashtags {
     padding: 8px;
