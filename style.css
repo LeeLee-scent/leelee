@@ -1,4 +1,4 @@
-/* Style: 文青療癒手繪風 (最終優化版本) */
+/* Style: 文青療癒手繪風 (間距優化版本) */
 :root {
   --bg: #fffaf5;
   --card: #fff;
@@ -35,7 +35,8 @@ body {
 .site-header {
   display: flex;
   justify-content: center;
-  padding: 20px 12px;
+  /* 縮小 Header 上下間距 */
+  padding: 12px 12px;
 }
 
 .logo {
@@ -47,14 +48,17 @@ body {
 .container {
   max-width: 720px;
   margin: 0 auto;
-  padding: 16px
+  /* 縮小整體左右間距 */
+  padding: 12px;
 }
 
 .card {
   background: var(--card);
   border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 18px;
+  /* 縮小卡片內邊距 */
+  padding: 18px;
+  /* 縮小卡片間距 */
+  margin-bottom: 12px;
   box-shadow: 0 8px 20px rgba(75, 63, 54, 0.08);
 }
 
@@ -78,14 +82,16 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: -30px;
+  /* 修正與 Logo 的間距 */
+  margin-top: -20px;
 }
 
 .intro-title-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  /* 縮小標題容器間距 */
+  margin-bottom: 18px;
   opacity: 0;
 }
 
@@ -110,11 +116,12 @@ body {
 
 .lead {
   color: var(--cream);
-  margin-bottom: 6px;
+  /* 縮小段落間距 */
+  margin-bottom: 4px;
   text-align: center !important;
   white-space: pre-wrap !important;
   font-size: 1.2em;
-  line-height: 1;
+  line-height: 1.2;
   letter-spacing: 0.5px;
 }
 
@@ -153,8 +160,9 @@ body {
 .answers {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 12px
+  /* 縮小答案按鈕間距 */
+  gap: 8px;
+  margin-top: 10px;
 }
 
 .answer-btn {
@@ -183,7 +191,9 @@ body {
   height: auto;
   border-radius: 10px;
   margin-bottom: 12px;
-  object-fit: cover
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .progress {
@@ -229,12 +239,15 @@ body {
   animation: fadeIn 1s forwards;
 }
 
-/* 全新結果頁面樣式 - 最終優化 */
+/* 結果頁面樣式 */
 #result {
   text-align: center;
 }
 
-/* 調整圖片容器，確保內容不重疊 */
+.result-header {
+  margin-bottom: 12px;
+}
+
 .result-image-container {
   max-width: 420px;
   margin: 0 auto;
@@ -246,15 +259,17 @@ body {
   border-radius: 14px;
   display: block;
   box-shadow: 0 8px 20px rgba(75, 63, 54, 0.12);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
-/* 標籤獨立為一個區塊，不會與圖片重疊 */
 .result-hashtags {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
-  margin-top: 24px;
+  /* 縮小標籤間距 */
+  gap: 8px;
+  margin-top: 16px;
   font-weight: 400;
   background: #f6efe8;
   padding: 12px;
@@ -271,20 +286,23 @@ body {
 .result-desc-text {
   background: var(--card);
   border-radius: 14px;
-  padding: 20px;
+  padding: 18px;
   border: 1px solid #e9e2db;
   color: var(--muted);
-  line-height: 1.8;
+  /* 縮小文字行距 */
+  line-height: 1.6;
   text-align: left;
   margin-top: 12px;
 }
 
 .result-desc-text p {
+  /* 縮小段落間距 */
   margin: 0;
+  font-size: 0.95em;
 }
 
-.result-desc-text p + p {
-  margin-top: 1em;
+.result-desc-text p+p {
+  margin-top: 0.8em;
 }
 
 .result-actions {
